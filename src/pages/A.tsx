@@ -61,23 +61,27 @@ export const A = () => {
       const d: AuthRes = await r.json();
 
       if (act === "reg_i") {
-        const v = await startRegistration(d.opts);
+        const v = await startRegistration({ optionsJSON: d.opts });
         const vR = await fetch("/api/admin/auth", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ act: "reg_v", id: d.id, u, p, c: d.opts.challenge, resp: v }),
         });
+        if (!vR.ok) { serr("Registration verification failed."); sld(false); return; }
         const vD: AuthRes = await vR.json();
         if (vD.sid) { localStorage.setItem("sid", vD.sid); ssid(vD.sid); }
+        else { serr("No session returned."); }
       } else {
-        const v = await startAuthentication(d.opts);
+        const v = await startAuthentication({ optionsJSON: d.opts });
         const vR = await fetch("/api/admin/auth", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ act: "log_v", c: d.opts.challenge, resp: v }),
         });
+        if (!vR.ok) { serr("Passkey verification failed."); sld(false); return; }
         const vD: AuthRes = await vR.json();
         if (vD.sid) { localStorage.setItem("sid", vD.sid); ssid(vD.sid); }
+        else { serr("No session returned."); }
       }
     } catch (e: unknown) {
       serr(e instanceof Error ? e.message : "Authentication failed.");
