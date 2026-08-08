@@ -78,7 +78,7 @@ export const S = () => {
               ref={ref}
               className="inp"
               type="text"
-              placeholder="Search for a word..."
+              placeholder="Zoek een woord..."
               value={q}
               onChange={(e) => sq(e.target.value)}
             />
@@ -97,7 +97,7 @@ export const S = () => {
         )}
 
         {!ld && hs && r.length === 0 && (
-          <div className="empty">No results found for "{q}"</div>
+          <div className="empty">Geen resultaten gevonden voor "{q}"</div>
         )}
 
         {r.length > 0 && (

@@ -57,7 +57,7 @@ export const A = () => {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ act, u, p }),
       });
-      if (!r.ok) { serr("Invalid credentials."); sld(false); return; }
+      if (!r.ok) { serr("Ongeldige inloggegevens."); sld(false); return; }
       const d: AuthRes = await r.json();
 
       if (act === "reg_i") {
@@ -67,10 +67,10 @@ export const A = () => {
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ act: "reg_v", id: d.id, u, p, c: d.opts.challenge, resp: v }),
         });
-        if (!vR.ok) { serr("Registration verification failed."); sld(false); return; }
+        if (!vR.ok) { serr("Verificatie van registratie mislukt."); sld(false); return; }
         const vD: AuthRes = await vR.json();
         if (vD.sid) { localStorage.setItem("sid", vD.sid); ssid(vD.sid); }
-        else { serr("No session returned."); }
+        else { serr("Geen sessie geretourneerd."); }
       } else {
         const v = await startAuthentication({ optionsJSON: d.opts });
         const vR = await fetch("/api/admin/auth", {
@@ -78,13 +78,13 @@ export const A = () => {
           headers: { "content-type": "application/json" },
           body: JSON.stringify({ act: "log_v", c: d.opts.challenge, resp: v }),
         });
-        if (!vR.ok) { serr("Passkey verification failed."); sld(false); return; }
+        if (!vR.ok) { serr("Verificatie van passkey mislukt."); sld(false); return; }
         const vD: AuthRes = await vR.json();
         if (vD.sid) { localStorage.setItem("sid", vD.sid); ssid(vD.sid); }
-        else { serr("No session returned."); }
+        else { serr("Geen sessie geretourneerd."); }
       }
     } catch (e: unknown) {
-      serr(e instanceof Error ? e.message : "Authentication failed.");
+      serr(e instanceof Error ? e.message : "Inloggen mislukt.");
     }
     sld(false);
   };
@@ -107,19 +107,19 @@ export const A = () => {
       <div className="bg-noise" />
       <div className="wrap wrap--center">
         <div className="bx">
-          <div className="bx-title">{ca ? "Create Admin" : "Admin Login"}</div>
-          <div className="bx-sub">{ca ? "Set up the sole admin account with a passkey." : "Authenticate with your credentials and passkey."}</div>
+          <div className="bx-title">{ca ? "Beheerder aanmaken" : "Beheerder Login"}</div>
+          <div className="bx-sub">{ca ? "Maak de enige beheerdersaccount aan met een passkey." : "Log in met je gegevens en passkey."}</div>
           {err && <div className="err-msg">{err}</div>}
           <div className="fg">
-            <label className="lbl">Username</label>
+            <label className="lbl">Gebruikersnaam</label>
             <input className="inp-f" type="text" value={u} onChange={(e) => su(e.target.value)} placeholder="admin" />
           </div>
           <div className="fg">
-            <label className="lbl">Password</label>
+            <label className="lbl">Wachtwoord</label>
             <input className="inp-f" type="password" value={p} onChange={(e) => sp(e.target.value)} placeholder="••••••••" />
           </div>
           <button className="btn" disabled={ld || !u || !p} onClick={() => dolog(ca ? "reg_i" : "log_i")}>
-            {ld ? <div className="spin" /> : (ca ? "Create Account & Register Passkey" : "Login with Passkey")}
+            {ld ? <div className="spin" /> : (ca ? "Account aanmaken & Passkey registreren" : "Inloggen met Passkey")}
           </button>
         </div>
       </div>
@@ -166,56 +166,56 @@ const D = ({ sid, lgout }: { sid: string; lgout: () => void }) => {
       <div className="adm-bar">
         <div className="adm-title">Dashboard</div>
         <button className="btn btn--ghost btn--sm" onClick={lgout}>
-          <LogOut size={14} /> Logout
+          <LogOut size={14} /> Uitloggen
         </button>
       </div>
 
       <div className="cnt">
         <div className="cnt-dot" />
-        <span>{tc} {tc === 1 ? "entry" : "entries"} in database</span>
+        <span>{tc} {tc === 1 ? "item" : "items"} in de databank</span>
       </div>
 
       <div className="adm-card">
-        <div className="adm-card-title"><Plus size={16} style={{ display: "inline", marginRight: 8, verticalAlign: "middle" }} />Add Entry</div>
+        <div className="adm-card-title"><Plus size={16} style={{ display: "inline", marginRight: 8, verticalAlign: "middle" }} />Woord toevoegen</div>
         <div className="adm-grid">
           <div className="fg">
             <label className="lbl">'t Lanes</label>
-            <input className="inp-f" placeholder="e.g. koekeansen" value={f.wl} onChange={(e) => sf({ ...f, wl: e.target.value })} />
+            <input className="inp-f" placeholder="bijv. koekeansen" value={f.wl} onChange={(e) => sf({ ...f, wl: e.target.value })} />
           </div>
           <div className="fg">
             <label className="lbl">IPA</label>
-            <input className="inp-f" placeholder="e.g. kukɑnsə" value={f.ipa} onChange={(e) => sf({ ...f, ipa: e.target.value })} />
+            <input className="inp-f" placeholder="bijv. kukɑnsə" value={f.ipa} onChange={(e) => sf({ ...f, ipa: e.target.value })} />
           </div>
           <div className="fg">
             <label className="lbl">Nederlands</label>
-            <input className="inp-f" placeholder="e.g. koekjes" value={f.wnl} onChange={(e) => sf({ ...f, wnl: e.target.value })} />
+            <input className="inp-f" placeholder="bijv. koekjes" value={f.wnl} onChange={(e) => sf({ ...f, wnl: e.target.value })} />
           </div>
           <div className="fg">
-            <label className="lbl">Example</label>
-            <input className="inp-f" placeholder="Use in a sentence..." value={f.ex} onChange={(e) => sf({ ...f, ex: e.target.value })} />
+            <label className="lbl">Voorbeeldzin</label>
+            <input className="inp-f" placeholder="Gebruik in een zin..." value={f.ex} onChange={(e) => sf({ ...f, ex: e.target.value })} />
           </div>
         </div>
         <button className="btn" style={{ marginTop: 8 }} disabled={sv || !f.wl || !f.wnl} onClick={add}>
-          {sv ? <div className="spin" /> : <><Plus size={16} /> Save Entry</>}
+          {sv ? <div className="spin" /> : <><Plus size={16} /> Opslaan</>}
         </button>
       </div>
 
       <div className="adm-card" style={{ animationDelay: "0.2s" }}>
-        <div className="adm-card-title"><BookOpen size={16} style={{ display: "inline", marginRight: 8, verticalAlign: "middle" }} />All Entries</div>
+        <div className="adm-card-title"><BookOpen size={16} style={{ display: "inline", marginRight: 8, verticalAlign: "middle" }} />Alle woorden</div>
         <div className="t-wrap">
           <table className="t">
             <thead>
               <tr>
-                <th>Word</th>
+                <th>Woord</th>
                 <th>IPA</th>
                 <th>Nederlands</th>
-                <th>Example</th>
+                <th>Voorbeeldzin</th>
                 <th style={{ width: 80 }}></th>
               </tr>
             </thead>
             <tbody>
               {d.length === 0 && (
-                <tr><td colSpan={5} style={{ textAlign: "center", color: "var(--fg2)", padding: 32 }}>No entries yet.</td></tr>
+                <tr><td colSpan={5} style={{ textAlign: "center", color: "var(--fg2)", padding: 32 }}>Nog geen woorden toegevoegd.</td></tr>
               )}
               {d.map((x) => (
                 <tr key={x.id}>
