@@ -179,7 +179,7 @@ const D = ({ sid, lgout }: { sid: string; lgout: () => void }) => {
         <div className="adm-card-title"><Plus size={16} style={{ display: "inline", marginRight: 8, verticalAlign: "middle" }} />Add Entry</div>
         <div className="adm-grid">
           <div className="fg">
-            <label className="lbl">Het Lanes</label>
+            <label className="lbl">'t Lanes</label>
             <input className="inp-f" placeholder="e.g. koekeansen" value={f.wl} onChange={(e) => sf({ ...f, wl: e.target.value })} />
           </div>
           <div className="fg">

@@ -65,10 +65,10 @@ export const S = () => {
         <div className={`hero ${act ? "hero--shifted" : ""}`}>
           <div className="logo">
             <div className="logo-dot" />
-            <span className="logo-text">Het Lanes</span>
+            <span className="logo-text">'t Lanes</span>
           </div>
-          <h1 className="hd">Lanes Dictionary</h1>
-          {!act && <p className="sub">Translate Het Lanes dialect words to Algemeen Nederlands instantly.</p>}
+          <h1 className="hd">Lanes Woordenboek</h1>
+          {!act && <p className="sub">Zoek woorden op in AN of in 't Lanes en vind hun tegenhangers!</p>}
         </div>
 
         <div className={`search-wrap ${act ? "search-wrap--shifted" : ""}`}>
