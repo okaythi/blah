@@ -3,6 +3,7 @@ import { Search } from "lucide-react";
 import type { Entry, XRef } from "../types";
 import { parseEntry } from "../types";
 import { RC } from "../components/RC";
+import { Nav } from "../components/Nav";
 
 export const S = () => {
   const [q, sq] = useState("");
@@ -55,7 +56,10 @@ export const S = () => {
       <div className="bg-grid" />
       <div className="bg-noise" />
 
-      <div className="wrap">
+      <div className="wrap" style={{ position: 'relative' }}>
+        <div style={{ position: 'absolute', top: 24, left: 24, right: 24, zIndex: 10 }}>
+          <Nav />
+        </div>
         <div className={`hero ${act ? "hero--shifted" : ""}`}>
           <div className="logo">
             <div className="logo-dot" />
