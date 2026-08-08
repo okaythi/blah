@@ -66,16 +66,16 @@ export function RC({ e, xrefs }: { e: Entry; xrefs?: XRef[] }) {
       <div className="itm-head">
         <div className="itm-word">{e.word_lanes}</div>
         {e.lemma && e.lemma !== e.word_lanes && <div style={{color: 'var(--fg2)', fontSize: '0.9rem'}}>→ {e.lemma}</div>}
-        {e.pos && <div className="badge badge--pos">{POS_SHORT[e.pos]}</div>}
+        {e.pos && <div className="badge badge--pos" title={`Woordsoort: ${POS_SHORT[e.pos]}`}>{POS_SHORT[e.pos]}</div>}
         {e.audio_url && <button onClick={playAudio} className="audio-btn" title="Beluister"><Volume2 size={16} /></button>}
       </div>
 
       <div style={{display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '12px', flexWrap: 'wrap'}}>
-        {e.broad_ipa && <div className="itm-ipa">/{e.broad_ipa}/</div>}
-        {e.narrow_ipa && <div className="itm-ipa" style={{opacity: 0.7}}>[{e.narrow_ipa}]</div>}
-        {e.tone && <div className="badge badge--tone" title="Prosodie/Intonatie">{e.tone}</div>}
-        {e.register && e.register !== 'informeel' && <div className="badge badge--reg">{REG_L[e.register]}</div>}
-        {e.entry_status && e.entry_status !== 'actief' && <div className={`badge badge--sts-${e.entry_status === 'archaïsch' ? 'b' : 'c'}`}>{STS_L[e.entry_status]}</div>}
+        {e.broad_ipa && <div className="itm-ipa" title="Brede transcriptie">/{e.broad_ipa}/</div>}
+        {e.narrow_ipa && <div className="itm-ipa" style={{opacity: 0.7}} title="Nauwe transcriptie">[{e.narrow_ipa}]</div>}
+        {e.tone && <div className="badge badge--tone" title={`Prosodie/Intonatie: ${e.tone}`}>{e.tone}</div>}
+        {e.register && e.register !== 'informeel' && <div className="badge badge--reg" title={`Register: ${REG_L[e.register]}`}>{REG_L[e.register]}</div>}
+        {e.entry_status && e.entry_status !== 'actief' && <div className={`badge badge--sts-${e.entry_status === 'archaïsch' ? 'b' : 'c'}`} title={`Status: ${STS_L[e.entry_status]}`}>{STS_L[e.entry_status]}</div>}
       </div>
 
       <div className="itm-nl">{e.word_nl}</div>
