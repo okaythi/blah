@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Volume2, ChevronDown } from 'lucide-react';
-import { Entry, XRef, POS_SHORT, REG_L, STS_L, REL_L, MorphNoun, MorphVerb, MorphAdj } from '../types';
+import type { Entry, XRef, MorphNoun, MorphVerb, MorphAdj } from '../types';
+import { POS_SHORT, REG_L, STS_L, REL_L } from '../types';
 
 export function RC({ e, xrefs }: { e: Entry; xrefs?: XRef[] }) {
   const [etymOpen, setEtymOpen] = useState(false);

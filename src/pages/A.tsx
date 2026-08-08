@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { startRegistration, startAuthentication } from "@simplewebauthn/browser";
 import { LogOut, BookOpen, Edit2, Trash2, Plus } from "lucide-react";
-import { Entry, parseEntry, POS_SHORT, REG_L, STS_L } from "../types";
+import type { Entry } from "../types";
+import { parseEntry, POS_SHORT, STS_L } from "../types";
 import { EF } from "../components/EF";
 
 interface AuthRes {

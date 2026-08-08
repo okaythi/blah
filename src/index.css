@@ -40,6 +40,21 @@ body {
   overflow-x: hidden;
 }
 
+::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gls-br2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 #root {
   min-height: 100vh;
 }

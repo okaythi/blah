@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, Plus, Trash2 } from 'lucide-react';
-import { Entry, Pos, Reg, Sts, Def, Colloc, Morph, POS_L, REG_L, STS_L } from '../types';
+import type { Entry, Pos, Reg, Sts, Def, Colloc } from '../types';
+import { POS_L, REG_L, STS_L } from '../types';
 
 interface EFProps {
   init?: Entry;

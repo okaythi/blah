@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Search } from "lucide-react";
-import { Entry, parseEntry, XRef } from "../types";
+import type { Entry, XRef } from "../types";
+import { parseEntry } from "../types";
 import { RC } from "../components/RC";
 
 export const S = () => {
