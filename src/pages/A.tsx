@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
 import { startRegistration, startAuthentication } from "@simplewebauthn/browser";
-import { LogOut, Plus, Trash2, BookOpen } from "lucide-react";
-
-interface Entry {
-  id: string;
-  word_lanes: string;
-  ipa: string;
-  word_nl: string;
-  example_sentence: string;
-  additional_metadata: string;
-}
+import { LogOut, BookOpen, Edit2, Trash2, Plus } from "lucide-react";
+import { Entry, parseEntry, POS_SHORT, REG_L, STS_L } from "../types";
+import { EF } from "../components/EF";
 
 interface AuthRes {
   opts?: any;
@@ -18,16 +11,6 @@ interface AuthRes {
   sid?: string;
   c?: number;
 }
-
-interface FormState {
-  wl: string;
-  ipa: string;
-  wnl: string;
-  ex: string;
-  md: string;
-}
-
-const init: FormState = { wl: "", ipa: "", wnl: "", ex: "", md: "" };
 
 export const A = () => {
   const [ca, sca] = useState(false);
@@ -130,32 +113,35 @@ export const A = () => {
 const D = ({ sid, lgout }: { sid: string; lgout: () => void }) => {
   const [d, sd] = useState<Entry[]>([]);
   const [tc, stc] = useState(0);
-  const [f, sf] = useState<FormState>({ ...init });
+  const [ei, sei] = useState<string | null>(null); // editing ID, 'new' for creating
   const [sv, ssv] = useState(false);
 
   const rl = async () => {
     const rx = await fetch("/api/admin/entries", { headers: { Authorization: `Bearer ${sid}` } });
     if (rx.status === 401) { lgout(); return; }
     const j = await rx.json();
-    sd(j.r || []);
+    sd((j.r || []).map((x: any) => parseEntry(x)));
     stc(j.c || 0);
   };
 
   useEffect(() => { rl(); }, [sid]);
 
-  const add = async () => {
+  const save = async (data: any) => {
     ssv(true);
+    const m = ei === 'new' ? 'POST' : 'PUT';
+    const body = ei === 'new' ? data : { ...data, id: ei };
     await fetch("/api/admin/entries", {
-      method: "POST",
+      method: m,
       headers: { Authorization: `Bearer ${sid}`, "content-type": "application/json" },
-      body: JSON.stringify(f),
+      body: JSON.stringify(body),
     });
-    sf({ ...init });
+    sei(null);
     await rl();
     ssv(false);
   };
 
   const del = async (id: string) => {
+    if (!confirm("Zeker dat je dit woord wil verwijderen?")) return;
     await fetch(`/api/admin/entries?id=${id}`, { method: "DELETE", headers: { Authorization: `Bearer ${sid}` } });
     sd(d.filter((x) => x.id !== id));
     stc((c) => c - 1);
@@ -175,65 +161,73 @@ const D = ({ sid, lgout }: { sid: string; lgout: () => void }) => {
         <span>{tc} {tc === 1 ? "item" : "items"} in de databank</span>
       </div>
 
-      <div className="adm-card">
-        <div className="adm-card-title"><Plus size={16} style={{ display: "inline", marginRight: 8, verticalAlign: "middle" }} />Woord toevoegen</div>
-        <div className="adm-grid">
-          <div className="fg">
-            <label className="lbl">'t Lanes</label>
-            <input className="inp-f" placeholder="bijv. koekeansen" value={f.wl} onChange={(e) => sf({ ...f, wl: e.target.value })} />
-          </div>
-          <div className="fg">
-            <label className="lbl">IPA</label>
-            <input className="inp-f" placeholder="bijv. kukɑnsə" value={f.ipa} onChange={(e) => sf({ ...f, ipa: e.target.value })} />
-          </div>
-          <div className="fg">
-            <label className="lbl">Nederlands</label>
-            <input className="inp-f" placeholder="bijv. koekjes" value={f.wnl} onChange={(e) => sf({ ...f, wnl: e.target.value })} />
-          </div>
-          <div className="fg">
-            <label className="lbl">Voorbeeldzin</label>
-            <input className="inp-f" placeholder="Gebruik in een zin..." value={f.ex} onChange={(e) => sf({ ...f, ex: e.target.value })} />
-          </div>
-        </div>
-        <button className="btn" style={{ marginTop: 8 }} disabled={sv || !f.wl || !f.wnl} onClick={add}>
-          {sv ? <div className="spin" /> : <><Plus size={16} /> Opslaan</>}
+      {!ei && (
+        <button className="btn" style={{marginBottom: 24}} onClick={() => sei('new')}>
+          <Plus size={16} /> Nieuw Woord Toevoegen
         </button>
-      </div>
+      )}
 
-      <div className="adm-card" style={{ animationDelay: "0.2s" }}>
-        <div className="adm-card-title"><BookOpen size={16} style={{ display: "inline", marginRight: 8, verticalAlign: "middle" }} />Alle woorden</div>
-        <div className="t-wrap">
-          <table className="t">
-            <thead>
-              <tr>
-                <th>Woord</th>
-                <th>IPA</th>
-                <th>Nederlands</th>
-                <th>Voorbeeldzin</th>
-                <th style={{ width: 80 }}></th>
-              </tr>
-            </thead>
-            <tbody>
-              {d.length === 0 && (
-                <tr><td colSpan={5} style={{ textAlign: "center", color: "var(--fg2)", padding: 32 }}>Nog geen woorden toegevoegd.</td></tr>
-              )}
-              {d.map((x) => (
-                <tr key={x.id}>
-                  <td style={{ fontWeight: 600 }}>{x.word_lanes}</td>
-                  <td style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--ac2)", fontSize: "0.85rem" }}>{x.ipa}</td>
-                  <td>{x.word_nl}</td>
-                  <td style={{ color: "var(--fg2)", fontSize: "0.85rem" }}>{x.example_sentence}</td>
-                  <td>
-                    <button className="btn btn--rd btn--sm" onClick={() => del(x.id)}>
-                      <Trash2 size={13} />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      {ei && (
+        <div style={{marginBottom: 32}}>
+          <div className="adm-card-title">{ei === 'new' ? 'Nieuw Woord' : 'Woord Bewerken'}</div>
+          {sv && <div className="cnt"><div className="spin" /></div>}
+          {!sv && (
+            <EF 
+              init={ei === 'new' ? undefined : d.find(x => x.id === ei)} 
+              onSave={save} 
+              onCancel={() => sei(null)} 
+            />
+          )}
         </div>
-      </div>
+      )}
+
+      {!ei && (
+        <div className="adm-card" style={{ animationDelay: "0.2s" }}>
+          <div className="adm-card-title"><BookOpen size={16} style={{ display: "inline", marginRight: 8, verticalAlign: "middle" }} />Alle woorden</div>
+          <div className="t-wrap">
+            <table className="t">
+              <thead>
+                <tr>
+                  <th>Woord</th>
+                  <th>IPA</th>
+                  <th>Nederlands</th>
+                  <th>Soort</th>
+                  <th>Status</th>
+                  <th style={{ width: 100 }}>Acties</th>
+                </tr>
+              </thead>
+              <tbody>
+                {d.length === 0 && (
+                  <tr><td colSpan={6} style={{ textAlign: "center", color: "var(--fg2)", padding: 32 }}>Nog geen woorden toegevoegd.</td></tr>
+                )}
+                {d.map((x) => (
+                  <tr key={x.id}>
+                    <td style={{ fontWeight: 600 }}>{x.word_lanes}</td>
+                    <td style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--ac2)", fontSize: "0.85rem" }}>{x.broad_ipa}</td>
+                    <td>{x.word_nl}</td>
+                    <td>{x.pos ? <span className="badge badge--pos">{POS_SHORT[x.pos]}</span> : '-'}</td>
+                    <td>
+                      {x.entry_status !== 'actief' ? (
+                        <span className={`badge badge--sts-${x.entry_status === 'archaïsch' ? 'b' : 'c'}`}>{STS_L[x.entry_status]}</span>
+                      ) : <span className="badge badge--sts-a">Actief</span>}
+                    </td>
+                    <td>
+                      <div style={{display: 'flex', gap: 6}}>
+                        <button className="btn btn--ghost btn--sm" onClick={() => sei(x.id)} title="Bewerken" style={{padding: 6}}>
+                          <Edit2 size={13} />
+                        </button>
+                        <button className="btn btn--rd btn--sm" onClick={() => del(x.id)} title="Verwijderen" style={{padding: 6}}>
+                          <Trash2 size={13} />
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

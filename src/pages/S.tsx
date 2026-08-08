@@ -1,18 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { Search } from "lucide-react";
-
-interface Entry {
-  id: string;
-  word_lanes: string;
-  ipa: string;
-  word_nl: string;
-  example_sentence: string;
-  additional_metadata: string;
-}
+import { Entry, parseEntry, XRef } from "../types";
+import { RC } from "../components/RC";
 
 export const S = () => {
   const [q, sq] = useState("");
-  const [r, sr] = useState<Entry[]>([]);
+  const [r, sr] = useState<(Entry & { xrefs?: XRef[] })[]>([]);
   const [ld, sld] = useState(false);
   const [hs, shs] = useState(false);
   const ref = useRef<HTMLInputElement>(null);
@@ -39,8 +32,8 @@ export const S = () => {
       try {
         const rs = await fetch(`/api/search?q=${encodeURIComponent(q.trim())}`);
         if (rs.ok) {
-          const d: Entry[] = await rs.json();
-          sr(d);
+          const d: any[] = await rs.json();
+          sr(d.map(x => ({ ...parseEntry(x), xrefs: x.xrefs })));
         }
       } catch {}
       sld(false);
@@ -103,16 +96,7 @@ export const S = () => {
         {r.length > 0 && (
           <div className="lst">
             {r.map((x) => (
-              <div key={x.id} className="itm">
-                <div className="itm-head">
-                  <span className="itm-word">{x.word_lanes}</span>
-                  {x.ipa && <span className="itm-ipa">/{x.ipa}/</span>}
-                </div>
-                <div className="itm-nl">{x.word_nl}</div>
-                {x.example_sentence && (
-                  <div className="itm-ex">"{x.example_sentence}"</div>
-                )}
-              </div>
+              <RC key={x.id} e={x} xrefs={x.xrefs} />
             ))}
           </div>
         )}
