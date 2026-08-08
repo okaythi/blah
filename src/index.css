@@ -1,0 +1,160 @@
+:root {
+  --bg: #0f0f11;
+  --fg: #f3f4f6;
+  --ac: #3b82f6;
+  --p: 20px;
+  --br: 12px;
+  --gls: rgba(255, 255, 255, 0.03);
+  --gls-br: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--p);
+}
+
+.c-adm {
+  display: flex;
+  flex-direction: column;
+  padding: var(--p);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bx {
+  background: var(--gls);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--gls-br);
+  border-radius: var(--br);
+  padding: var(--p);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 600px;
+  transition: all 0.3s ease;
+}
+
+.bx-adm {
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.inp {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--gls-br);
+  color: var(--fg);
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.inp:focus {
+  border-color: var(--ac);
+}
+
+.btn {
+  background: var(--ac);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lst {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.itm {
+  background: var(--gls);
+  border: 1px solid var(--gls-br);
+  border-radius: 8px;
+  padding: 16px;
+  animation: sD 0.3s ease forwards;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+@keyframes sD {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.t {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.t th, .t td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--gls-br);
+}
+
+.t th {
+  font-weight: 600;
+  color: var(--ac);
+}
+
+.hd {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #fff, #9ca3af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lbl {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.fg {
+  margin-bottom: 16px;
+}

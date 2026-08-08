@@ -1,0 +1,9 @@
+name = "blah"
+compatibility_date = "2024-03-20"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dictionary-db"
+database_id = "67e59e1b-c73f-4894-8278-baaae38a1ef4"
