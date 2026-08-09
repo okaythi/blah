@@ -12,9 +12,8 @@ export const Footer = () => {
       fontSize: "0.9rem"
     }}>
       <div className="footer-left" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-        {/* Wapen_van_Vlaams-Brabant.svg Placeholder */}
-        <div style={{ width: "40px", height: "40px", background: "var(--gls2)", borderRadius: "var(--br-sm)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span>VB</span>
+        <div style={{ width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <img src="/vlaams-brabant.svg" alt="Provincie Vlaams-Brabant" style={{ maxWidth: "100%", maxHeight: "100%" }} />
         </div>
         <div>
           <strong>Provincie Vlaams-Brabant</strong>
@@ -29,9 +28,8 @@ export const Footer = () => {
         <div>
           <strong>Stad Landen</strong>
         </div>
-        {/* Landen Gemeentewapen SVG Placeholder */}
-        <div style={{ width: "40px", height: "40px", background: "var(--gls2)", borderRadius: "var(--br-sm)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span>LA</span>
+        <div style={{ width: "40px", height: "40px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <img src="/landen.svg" alt="Stad Landen" style={{ maxWidth: "100%", maxHeight: "100%" }} />
         </div>
       </div>
     </footer>
