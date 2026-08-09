@@ -18,24 +18,18 @@ export const CulturePage = () => {
   }, []);
 
   return (
-    <div className="pg">
+    <div className="pg" style={{ display: "flex", flexDirection: "column", flex: 1, padding: "24px" }}>
       <div className="bg-orb bg-orb--a" />
       <div className="bg-orb bg-orb--b" />
       <div className="bg-orb bg-orb--c" />
       
-      <Nav />
+      <div style={{ zIndex: 10 }}>
+        <Nav />
+      </div>
       
-      <main className="search-main" style={{ maxWidth: "1200px" }}>
-        <header style={{ textAlign: "center", marginBottom: "40px" }}>
-          <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
-            <div style={{ width: "48px", height: "48px", borderRadius: "50%", background: "var(--gls2)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid var(--gls-br)" }}>
-              <Landmark size={24} color="var(--ac)" />
-            </div>
-          </div>
-          <h1 style={{ fontSize: "2rem", fontWeight: "700", marginBottom: "16px" }}>
-            Cultuur & Geschiedenis
-          </h1>
-          <p style={{ color: "var(--fg2)", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6" }}>
+      <main className="search-main" style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", marginTop: "48px" }}>
+        <header style={{ textAlign: "center", marginBottom: "48px" }}>
+          <p style={{ color: "var(--fg)", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6", textAlign: "center", fontSize: "1.1rem" }}>
             Verken de rijke taalkundige geschiedenis van Landen. Ontdek fascinerende feiten, historische kaarten en lokale fotografie die ons erfgoed en het dialect van 't Lanes tot leven brengen.
           </p>
         </header>
