@@ -224,8 +224,8 @@ export const CulturePage = () => {
                 <h3 style={{ color: "var(--fg2)", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Chronologie van de Taalgrens in Landen</h3>
               </div>
               
-              <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px" }}>
-                <div style={{ position: "relative", height: "480px", display: "flex", alignItems: "center", minWidth: "max-content", gap: "250px" }}>
+              <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px", msOverflowStyle: "none", scrollbarWidth: "none" }}>
+                <div style={{ position: "relative", height: "650px", display: "flex", alignItems: "center", minWidth: "max-content", gap: "250px" }}>
                   <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: "2px", background: "var(--ac)" }} />
                   
                   {timelineData.map((item, index) => {
@@ -445,18 +445,7 @@ export const CulturePage = () => {
           to { opacity: 1; transform: translateY(0); }
         }
         .timeline-scroll::-webkit-scrollbar {
-          height: 6px;
-        }
-        .timeline-scroll::-webkit-scrollbar-track {
-          background: rgba(255, 255, 255, 0.02);
-          border-radius: 4px;
-        }
-        .timeline-scroll::-webkit-scrollbar-thumb {
-          background: var(--gls-br2);
-          border-radius: 4px;
-        }
-        .timeline-scroll::-webkit-scrollbar-thumb:hover {
-          background: var(--ac);
+          display: none;
         }
         .timeline-node:hover .timeline-dot {
           transform: translate(-50%, -50%) scale(1.4) !important;

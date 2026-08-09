@@ -8,7 +8,7 @@ export const Footer = () => {
       padding: "24px",
       marginTop: "auto",
       borderTop: "1px solid var(--gls-br)",
-      background: "var(--bg)",
+      background: "transparent",
       color: "var(--fg2)",
       fontSize: "0.9rem"
     }}>
