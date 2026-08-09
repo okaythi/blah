@@ -3,9 +3,9 @@
   --bg2: #111114;
   --fg: #e8eaed;
   --fg2: #9ca3af;
-  --ac: #6366f1;
-  --ac2: #818cf8;
-  --ac3: #4f46e5;
+  --ac: #ef3340;
+  --ac2: #f2666f;
+  --ac3: #d9212d;
   --gn: #22c55e;
   --rd: #ef4444;
   --yl: #f59e0b;
@@ -78,7 +78,7 @@ body {
 .bg-orb--a {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+  background: radial-gradient(circle, #ef3340 0%, transparent 70%);
   top: -15%;
   left: -10%;
   animation-delay: 0s;
@@ -87,7 +87,7 @@ body {
 .bg-orb--b {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+  background: radial-gradient(circle, #ffffff 0%, transparent 70%);
   bottom: -20%;
   right: -10%;
   animation-delay: -7s;
@@ -97,7 +97,7 @@ body {
 .bg-orb--c {
   width: 350px;
   height: 350px;
-  background: radial-gradient(circle, #0ea5e9 0%, transparent 70%);
+  background: radial-gradient(circle, #d9212d 0%, transparent 70%);
   top: 50%;
   left: 60%;
   opacity: 0.2;
