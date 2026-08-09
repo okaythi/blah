@@ -29,7 +29,7 @@ export const CulturePage = () => {
       
       <main className="search-main" style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", marginTop: "48px" }}>
         <header style={{ textAlign: "center", marginBottom: "48px" }}>
-          <p style={{ color: "var(--fg)", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6", textAlign: "center", fontSize: "1.1rem" }}>
+          <p style={{ color: "var(--fg2)", maxWidth: "600px", margin: "0 auto", lineHeight: "1.6", textAlign: "center", fontSize: "0.95rem" }}>
             Verken de rijke taalkundige geschiedenis van Landen. Ontdek fascinerende feiten, historische kaarten en lokale fotografie die ons erfgoed en het dialect van 't Lanes tot leven brengen.
           </p>
         </header>
