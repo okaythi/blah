@@ -219,53 +219,61 @@ export const CulturePage = () => {
               </p>
             </div>
 
-            <div style={{ marginBottom: "100px", width: "100vw", position: "relative", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw", overflow: "hidden" }}>
+            <div style={{ marginBottom: "48px", width: "100vw", position: "relative", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw", overflow: "hidden" }}>
               <div style={{ textAlign: "center", marginBottom: "24px" }}>
                 <h3 style={{ color: "var(--fg2)", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Chronologie van de Taalgrens in Landen</h3>
               </div>
               
               <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px", msOverflowStyle: "none", scrollbarWidth: "none" }}>
-                <div style={{ position: "relative", height: "650px", display: "flex", alignItems: "center", minWidth: "max-content", gap: "250px" }}>
-                  <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: "2px", background: "var(--ac)" }} />
+                <div style={{ display: "flex", gap: "64px", alignItems: "flex-start", position: "relative", minWidth: "max-content" }}>
+                  <div style={{ position: "absolute", top: "258px", left: 0, right: 0, height: "2px", background: "var(--ac)", zIndex: 1 }} />
                   
                   {timelineData.map((item, index) => {
                     const isTop = index % 2 === 0;
-                    return (
-                      <div key={item.id} className="timeline-node" style={{ position: "relative", width: "40px" }}>
-                        <div className="timeline-dot" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "16px", height: "16px", borderRadius: "50%", background: "var(--bg)", border: "3px solid var(--ac)", boxShadow: "0 0 10px rgba(239, 51, 64, 0.5)", zIndex: 2, transition: "all 0.3s ease" }} />
-                        
-                        <div 
-                          style={{ 
-                            position: "absolute", 
-                            [isTop ? "bottom" : "top"]: "calc(50% + 16px)", 
-                            left: "50%", 
-                            transform: "translateX(-50%)", 
-                            width: "320px", 
-                            padding: "16px",
-                            cursor: "pointer",
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "center",
-                            transition: "all 0.3s ease"
-                          }} 
-                          onClick={() => setExpandedTimelineId(expandedTimelineId === item.id ? null : item.id)}
-                        >
-                           <div style={{ position: "absolute", [isTop ? "bottom" : "top"]: "-16px", left: "50%", width: "1px", height: "16px", background: "var(--ac)" }} />
+                    
+                    const content = (
+                      <div 
+                        style={{ 
+                          width: "100%",
+                          cursor: "pointer",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          position: "relative"
+                        }} 
+                        onClick={() => setExpandedTimelineId(expandedTimelineId === item.id ? null : item.id)}
+                      >
+                         <div style={{ position: "absolute", [isTop ? "bottom" : "top"]: "-16px", left: "50%", width: "1px", height: "16px", background: "var(--ac)" }} />
 
-                           <div style={{ color: "var(--ac)", fontWeight: 700, fontSize: "1.1rem", marginBottom: "8px", letterSpacing: "0.05em", textAlign: "center" }}>{item.year}</div>
-                           <h4 style={{ color: "var(--fg)", fontSize: "1.1rem", fontWeight: 600, margin: 0, textAlign: "center", lineHeight: "1.4" }}>{item.title}</h4>
-                           
-                           {expandedTimelineId !== item.id && (
-                             <div className="click-indicator" style={{ fontSize: "0.8rem", color: "var(--fg2)", marginTop: "8px", textTransform: "uppercase", letterSpacing: "0.05em", transition: "opacity 0.2s ease" }}>
-                               Klik om te lezen
-                             </div>
-                           )}
-
-                           <div style={{ maxHeight: expandedTimelineId === item.id ? "500px" : "0px", overflow: "hidden", transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)", width: "100%", opacity: expandedTimelineId === item.id ? 1 : 0 }}>
-                             <div style={{ marginTop: "16px", background: "var(--gls)", padding: "16px", borderRadius: "var(--br-sm)", border: "1px solid var(--gls-br)", color: "var(--fg2)", fontSize: "0.95rem", lineHeight: "1.6", textAlign: "left", boxShadow: "var(--sh)" }}>
-                               {item.content}
-                             </div>
+                         <div style={{ color: "var(--ac)", fontWeight: 700, fontSize: "1.1rem", marginBottom: "8px", letterSpacing: "0.05em", textAlign: "center" }}>{item.year}</div>
+                         <h4 style={{ color: "var(--fg)", fontSize: "1.1rem", fontWeight: 600, margin: 0, textAlign: "center", lineHeight: "1.4" }}>{item.title}</h4>
+                         
+                         {expandedTimelineId !== item.id && (
+                           <div className="click-indicator" style={{ fontSize: "0.8rem", color: "var(--fg2)", marginTop: "8px", textTransform: "uppercase", letterSpacing: "0.05em", transition: "opacity 0.2s ease" }}>
+                             Klik om te lezen
                            </div>
+                         )}
+
+                         <div style={{ maxHeight: expandedTimelineId === item.id ? "500px" : "0px", overflow: "hidden", transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)", width: "100%", opacity: expandedTimelineId === item.id ? 1 : 0 }}>
+                           <div style={{ marginTop: "16px", background: "var(--gls)", padding: "16px", borderRadius: "var(--br-sm)", border: "1px solid var(--gls-br)", color: "var(--fg2)", fontSize: "0.95rem", lineHeight: "1.6", textAlign: "left", boxShadow: "var(--sh)" }}>
+                             {item.content}
+                           </div>
+                         </div>
+                      </div>
+                    );
+
+                    return (
+                      <div key={item.id} className="timeline-node" style={{ display: "flex", flexDirection: "column", width: "320px", flexShrink: 0, position: "relative", zIndex: 2 }}>
+                        <div style={{ height: "250px", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "16px" }}>
+                          {isTop && content}
+                        </div>
+                        
+                        <div style={{ height: "18px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
+                          <div className="timeline-dot" style={{ width: "16px", height: "16px", borderRadius: "50%", background: "var(--bg)", border: "3px solid var(--ac)", boxShadow: "0 0 10px rgba(239, 51, 64, 0.5)", transition: "all 0.3s ease" }} />
+                        </div>
+                        
+                        <div style={{ paddingTop: "16px", display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
+                          {!isTop && content}
                         </div>
                       </div>
                     );
@@ -448,7 +456,7 @@ export const CulturePage = () => {
           display: none;
         }
         .timeline-node:hover .timeline-dot {
-          transform: translate(-50%, -50%) scale(1.4) !important;
+          transform: scale(1.4) !important;
           box-shadow: 0 0 15px rgba(239, 51, 64, 0.8) !important;
         }
         .click-indicator {
