@@ -136,7 +136,7 @@ const timelineData = [
 ];
 
 const DEFAULT_FACTS: CultureFact[] = [
-  { id: "f1", fact: "Wist je dat het dialect van Landen (Landens) behoort tot het Getelands, een overgangszone tussen het Brabants en het Limburgs?", created_at: 0 },
+  { id: "f1", fact: "Wist je dat het dialect van Landen (Landens) tot het Getelands behoort, een overgangszone tussen het Brabants en het Limburgs?", created_at: 0 },
   { id: "f2", fact: "In de 19e eeuw was het Frans de taal van de bourgeoisie en de administratie in Landen, terwijl het gewone volk uitsluitend het lokale dialect sprak.", created_at: 0 },
   { id: "f3", fact: "Tijdens de Gallo-Romeinse periode sprak de bevolking rond Landen een vorm van Vulgair Latijn, dat later sterk werd beïnvloed door de taal van de Salische Franken.", created_at: 0 },
   { id: "f4", fact: "De naam 'Landen' is van Germaanse oorsprong en hangt waarschijnlijk samen met het woord 'land' in de betekenis van een afgebakend, bewerkt stuk grond.", created_at: 0 }
