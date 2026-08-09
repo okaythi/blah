@@ -144,8 +144,8 @@ const DEFAULT_FACTS: CultureFact[] = [
 
 const DEFAULT_IMAGES: CultureImage[] = [
   { id: "i1", image_url: "https://images.unsplash.com/photo-1519865885898-a54a6f2c7eea?auto=format&fit=crop&q=80&w=800", caption: "Kasseiwegen in het historische centrum.", created_at: 0 },
-  { id: "i2", image_url: "https://images.unsplash.com/photo-1605814041697-39b03f0b09ba?auto=format&fit=crop&q=80&w=800", caption: "Oude architectuur en taalkundig erfgoed.", created_at: 0 },
-  { id: "i3", image_url: "https://images.unsplash.com/photo-1516483638261-f40af5bea098?auto=format&fit=crop&q=80&w=800", caption: "De nevelige landschappen rond de grensstreek.", created_at: 0 }
+  { id: "i2", image_url: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800", caption: "Oude architectuur en taalkundig erfgoed.", created_at: 0 },
+  { id: "i3", image_url: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800", caption: "De nevelige landschappen rond de grensstreek.", created_at: 0 }
 ];
 
 export const CulturePage = () => {
@@ -316,45 +316,70 @@ export const CulturePage = () => {
             {loading ? (
               <div style={{ textAlign: "center", color: "var(--fg2)" }}>Gegevens worden geladen...</div>
             ) : (
-              <div className="masonry-grid" style={{ 
-                columnCount: 2, 
-                columnGap: "48px",
-                maxWidth: "1000px",
-                margin: "0 auto"
-              }}>
-                {facts.map(fact => (
-                  <div key={fact.id} className="masonry-item" style={{ breakInside: "avoid", marginBottom: "64px" }}>
-                    <div style={{
-                      background: "var(--gls)",
-                      border: "1px solid var(--gls-br)",
-                      padding: "32px",
-                      borderRadius: "var(--br-sm)",
-                      boxShadow: "var(--sh)"
-                    }}>
-                      <blockquote style={{ 
-                        fontSize: "1.2rem", 
-                        lineHeight: "1.7", 
-                        color: "var(--fg)", 
-                        margin: 0,
-                        fontStyle: "italic",
-                        opacity: 0.95
-                      }}>
-                        "{fact.fact}"
-                      </blockquote>
-                    </div>
+              (() => {
+                const combinedItems = [];
+                let f = 0;
+                let i = 0;
+                while (f < facts.length || i < images.length) {
+                  if (f < facts.length) combinedItems.push({ type: 'fact', data: facts[f++] });
+                  if (i < images.length) combinedItems.push({ type: 'image', data: images[i++] });
+                }
+
+                return (
+                  <div className="masonry-grid" style={{ 
+                    columnCount: 2, 
+                    columnGap: "24px",
+                    maxWidth: "1000px",
+                    margin: "0 auto",
+                    paddingBottom: "48px"
+                  }}>
+                    {combinedItems.map((item, index) => {
+                      if (item.type === 'fact') {
+                        const fact = item.data as CultureFact;
+                        return (
+                          <div key={`f-${fact.id}`} className="masonry-item" style={{ breakInside: "avoid", marginBottom: "24px" }}>
+                            <div style={{
+                              background: "var(--gls)",
+                              border: "1px solid var(--gls-br)",
+                              padding: "32px",
+                              borderRadius: "var(--br-sm)",
+                              boxShadow: "var(--sh)",
+                              position: "relative",
+                              overflow: "hidden"
+                            }}>
+                              <div style={{ position: "absolute", top: "-10px", right: "10px", fontSize: "6rem", color: "var(--ac)", opacity: 0.1, fontFamily: "serif", lineHeight: 1, pointerEvents: "none" }}>"</div>
+                              <blockquote style={{ 
+                                fontSize: "1.2rem", 
+                                lineHeight: "1.7", 
+                                color: "var(--fg)", 
+                                margin: 0,
+                                fontStyle: "italic",
+                                opacity: 0.95,
+                                position: "relative",
+                                zIndex: 1
+                              }}>
+                                "{fact.fact}"
+                              </blockquote>
+                            </div>
+                          </div>
+                        );
+                      } else {
+                        const img = item.data as CultureImage;
+                        return (
+                          <div key={`i-${img.id}`} className="masonry-item" style={{ breakInside: "avoid", marginBottom: "24px" }}>
+                            <img src={img.image_url} alt={img.caption || ""} style={{ width: "100%", display: "block", borderRadius: "var(--br-sm)", filter: "grayscale(100%) contrast(1.1)", opacity: 0.85, transition: "all 0.3s ease", cursor: "pointer" }} onMouseOver={e => { e.currentTarget.style.filter = "grayscale(0%) contrast(1.1)"; e.currentTarget.style.opacity = "1"; }} onMouseOut={e => { e.currentTarget.style.filter = "grayscale(100%) contrast(1.1)"; e.currentTarget.style.opacity = "0.85"; }} />
+                            {img.caption && (
+                              <p style={{ marginTop: "16px", fontSize: "0.9rem", color: "var(--fg2)", letterSpacing: "0.01em" }}>
+                                {img.caption}
+                              </p>
+                            )}
+                          </div>
+                        );
+                      }
+                    })}
                   </div>
-                ))}
-                {images.map(img => (
-                  <div key={img.id} className="masonry-item" style={{ breakInside: "avoid", marginBottom: "64px" }}>
-                    <img src={img.image_url} alt={img.caption || ""} style={{ width: "100%", display: "block", borderRadius: "var(--br-sm)", filter: "grayscale(100%) contrast(1.1)", opacity: 0.85, transition: "all 0.3s ease", cursor: "pointer" }} onMouseOver={e => { e.currentTarget.style.filter = "grayscale(0%) contrast(1.1)"; e.currentTarget.style.opacity = "1"; }} onMouseOut={e => { e.currentTarget.style.filter = "grayscale(100%) contrast(1.1)"; e.currentTarget.style.opacity = "0.85"; }} />
-                    {img.caption && (
-                      <p style={{ marginTop: "16px", fontSize: "0.9rem", color: "var(--fg2)", letterSpacing: "0.01em" }}>
-                        {img.caption}
-                      </p>
-                    )}
-                  </div>
-                ))}
-              </div>
+                );
+              })()
             )}
           </section>
         )}
