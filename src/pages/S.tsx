@@ -10,7 +10,19 @@ export const S = () => {
   const [r, sr] = useState<(Entry & { xrefs?: XRef[] })[]>([]);
   const [ld, sld] = useState(false);
   const [hs, shs] = useState(false);
+  const [tc, stc] = useState<number | null>(null);
   const ref = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    fetch("/api/stats")
+      .then(r => r.json())
+      .then(d => {
+        if (d && typeof d.count === 'number') {
+          stc(d.count);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const fn = (e: KeyboardEvent) => {
@@ -63,7 +75,9 @@ export const S = () => {
         <div className={`hero ${act ? "hero--shifted" : ""}`}>
           <div className="logo">
             <div className="logo-dot" />
-            <span className="logo-text">'t Lanes</span>
+            <span className="logo-text">
+              {tc !== null ? `${tc} woord${tc === 1 ? '' : 'en'}` : "'t Lanes"}
+            </span>
           </div>
           <h1 className="hd">Lanes Woordenboek</h1>
           {!act && <p className="sub">Zoek woorden op in AN of in 't Lanes en vind hun tegenhangers!</p>}
