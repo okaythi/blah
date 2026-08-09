@@ -135,6 +135,19 @@ const timelineData = [
   }
 ];
 
+const DEFAULT_FACTS: CultureFact[] = [
+  { id: "f1", fact: "Wist je dat het dialect van Landen (Landens) behoort tot het Getelands, een overgangszone tussen het Brabants en het Limburgs?", created_at: 0 },
+  { id: "f2", fact: "In de 19e eeuw was het Frans de taal van de bourgeoisie en de administratie in Landen, terwijl het gewone volk uitsluitend het lokale dialect sprak.", created_at: 0 },
+  { id: "f3", fact: "Tijdens de Gallo-Romeinse periode sprak de bevolking rond Landen een vorm van Vulgair Latijn, dat later sterk werd beïnvloed door de taal van de Salische Franken.", created_at: 0 },
+  { id: "f4", fact: "De naam 'Landen' is van Germaanse oorsprong en hangt waarschijnlijk samen met het woord 'land' in de betekenis van een afgebakend, bewerkt stuk grond.", created_at: 0 }
+];
+
+const DEFAULT_IMAGES: CultureImage[] = [
+  { id: "i1", image_url: "https://images.unsplash.com/photo-1519865885898-a54a6f2c7eea?auto=format&fit=crop&q=80&w=800", caption: "Kasseiwegen in het historische centrum.", created_at: 0 },
+  { id: "i2", image_url: "https://images.unsplash.com/photo-1605814041697-39b03f0b09ba?auto=format&fit=crop&q=80&w=800", caption: "Oude architectuur en taalkundig erfgoed.", created_at: 0 },
+  { id: "i3", image_url: "https://images.unsplash.com/photo-1516483638261-f40af5bea098?auto=format&fit=crop&q=80&w=800", caption: "De nevelige landschappen rond de grensstreek.", created_at: 0 }
+];
+
 export const CulturePage = () => {
   const [activeTab, setActiveTab] = useState<Tab>('Overzicht');
   const [facts, setFacts] = useState<CultureFact[]>([]);
@@ -147,8 +160,8 @@ export const CulturePage = () => {
 
   useEffect(() => {
     CultureAPI.getAll().then(data => {
-      setFacts(data.facts);
-      setImages(data.images);
+      setFacts(data.facts.length > 0 ? data.facts : DEFAULT_FACTS);
+      setImages(data.images.length > 0 ? data.images : DEFAULT_IMAGES);
       setAudios(data.audios);
       setLoading(false);
     });
@@ -311,18 +324,24 @@ export const CulturePage = () => {
               }}>
                 {facts.map(fact => (
                   <div key={fact.id} className="masonry-item" style={{ breakInside: "avoid", marginBottom: "64px" }}>
-                    <blockquote style={{ 
-                      fontSize: "1.3rem", 
-                      lineHeight: "1.7", 
-                      color: "var(--fg)", 
-                      borderLeft: "2px solid var(--ac)", 
-                      paddingLeft: "24px",
-                      margin: 0,
-                      fontStyle: "italic",
-                      opacity: 0.9
+                    <div style={{
+                      background: "var(--gls)",
+                      border: "1px solid var(--gls-br)",
+                      padding: "32px",
+                      borderRadius: "var(--br-sm)",
+                      boxShadow: "var(--sh)"
                     }}>
-                      "{fact.fact}"
-                    </blockquote>
+                      <blockquote style={{ 
+                        fontSize: "1.2rem", 
+                        lineHeight: "1.7", 
+                        color: "var(--fg)", 
+                        margin: 0,
+                        fontStyle: "italic",
+                        opacity: 0.95
+                      }}>
+                        "{fact.fact}"
+                      </blockquote>
+                    </div>
                   </div>
                 ))}
                 {images.map(img => (
