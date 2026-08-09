@@ -154,18 +154,12 @@ export const CulturePage = () => {
     });
   }, []);
 
-  useEffect(() => {
-    const el = timelineRef.current;
-    if (!el) return;
-    const onWheel = (e: WheelEvent) => {
-      if (e.deltaY === 0) return;
-      // Convert vertical scroll to horizontal scroll
-      el.scrollBy({ left: e.deltaY > 0 ? 150 : -150, behavior: 'smooth' });
-      e.preventDefault();
-    };
-    el.addEventListener('wheel', onWheel, { passive: false });
-    return () => el.removeEventListener('wheel', onWheel);
-  }, []);
+  const scrollTimeline = (direction: 'left' | 'right') => {
+    if (timelineRef.current) {
+      const scrollAmount = direction === 'left' ? -400 : 400;
+      timelineRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="pg" style={{ display: "flex", flexDirection: "column", flex: 1, padding: "24px", paddingBottom: "100px", overflowX: "hidden" }}>
@@ -224,9 +218,32 @@ export const CulturePage = () => {
                 <h3 style={{ color: "var(--fg2)", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Chronologie van de Taalgrens in Landen</h3>
               </div>
               
-              <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px", msOverflowStyle: "none", scrollbarWidth: "none" }}>
-                <div style={{ display: "flex", gap: "64px", alignItems: "flex-start", position: "relative", minWidth: "max-content" }}>
-                  <div style={{ position: "absolute", top: "358px", left: 0, right: 0, height: "2px", background: "var(--ac)", zIndex: 1 }} />
+              <div style={{ position: "relative" }}>
+                {/* Left Fade & Button */}
+                <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to right, var(--bg) 0%, transparent 100%)", zIndex: 10, display: "flex", alignItems: "center", pointerEvents: "none" }}>
+                  <button 
+                    className="timeline-nav-btn"
+                    onClick={() => scrollTimeline('left')}
+                    style={{ pointerEvents: "auto", marginLeft: "16px", width: "48px", height: "48px", borderRadius: "50%", background: "var(--gls)", border: "1px solid var(--gls-br)", color: "var(--ac)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "all 0.2s ease", fontSize: "1.2rem", boxShadow: "var(--sh)" }}
+                  >
+                    ←
+                  </button>
+                </div>
+
+                {/* Right Fade & Button */}
+                <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to left, var(--bg) 0%, transparent 100%)", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "flex-end", pointerEvents: "none" }}>
+                  <button 
+                    className="timeline-nav-btn"
+                    onClick={() => scrollTimeline('right')}
+                    style={{ pointerEvents: "auto", marginRight: "16px", width: "48px", height: "48px", borderRadius: "50%", background: "var(--gls)", border: "1px solid var(--gls-br)", color: "var(--ac)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "all 0.2s ease", fontSize: "1.2rem", boxShadow: "var(--sh)" }}
+                  >
+                    →
+                  </button>
+                </div>
+
+                <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px", msOverflowStyle: "none", scrollbarWidth: "none" }}>
+                  <div style={{ display: "flex", gap: "64px", alignItems: "flex-start", position: "relative", minWidth: "max-content" }}>
+                    <div style={{ position: "absolute", top: "358px", left: 0, right: 0, height: "2px", background: "var(--ac)", zIndex: 1 }} />
                   
                   {timelineData.map((item, index) => {
                     const isTop = index % 2 === 0;
@@ -279,6 +296,7 @@ export const CulturePage = () => {
                     );
                   })}
                 </div>
+              </div>
               </div>
             </div>
 
@@ -465,6 +483,11 @@ export const CulturePage = () => {
         .timeline-node:hover .click-indicator {
           opacity: 1;
           color: var(--ac) !important;
+        }
+        .timeline-nav-btn:hover {
+          transform: scale(1.1);
+          background: rgba(239, 51, 64, 0.1) !important;
+          border-color: var(--ac) !important;
         }
       `}</style>
     </div>
