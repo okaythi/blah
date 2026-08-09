@@ -41,6 +41,31 @@ export const DictionaryAPI = {
   }
 };
 
+export interface CultureFact {
+  id: string;
+  fact: string;
+  created_at: number;
+}
+
+export interface CultureImage {
+  id: string;
+  image_url: string;
+  caption: string | null;
+  created_at: number;
+}
+
+export const CultureAPI = {
+  getAll: async (): Promise<{ facts: CultureFact[], images: CultureImage[] }> => {
+    try {
+      const rs = await fetch("/api/culture");
+      if (!rs.ok) return { facts: [], images: [] };
+      return await rs.json();
+    } catch {
+      return { facts: [], images: [] };
+    }
+  }
+};
+
 export interface AuthRes {
   opts?: Record<string, unknown>;
   id?: string;
@@ -72,5 +97,17 @@ export const AdminAPI = {
 
   deleteEntry: async (sid: string, id: string): Promise<Response> => {
     return fetch(`/api/admin/entries?id=${id}`, { method: "DELETE", headers: { Authorization: `Bearer ${sid}` } });
+  },
+
+  saveCulture: async (sid: string, method: string, body: Record<string, unknown>): Promise<Response> => {
+    return fetch("/api/admin/culture", {
+      method,
+      headers: { Authorization: `Bearer ${sid}`, "content-type": "application/json" },
+      body: JSON.stringify(body),
+    });
+  },
+
+  deleteCulture: async (sid: string, id: string, type: 'fact' | 'image'): Promise<Response> => {
+    return fetch(`/api/admin/culture?id=${id}&type=${type}`, { method: "DELETE", headers: { Authorization: `Bearer ${sid}` } });
   }
 };
