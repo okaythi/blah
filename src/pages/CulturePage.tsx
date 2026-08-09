@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Nav } from "../components/Nav";
 import { CultureAPI } from "../api";
 import type { CultureFact, CultureImage } from "../api";
-import { Landmark } from "lucide-react";
+
 
 export const CulturePage = () => {
   const [facts, setFacts] = useState<CultureFact[]>([]);
