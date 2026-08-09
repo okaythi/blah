@@ -225,93 +225,103 @@ export const CulturePage = () => {
                 Landen bevindt zich op een cruciaal historisch breukvlak. De stad vormt een taalkundige en geografische brug waar Frankische nederzettingen, Brabantse expansie en de Romeinse erfenis samenkwamen om een uniek grensgebied te vormen, onlosmakelijk verbonden met het ontstaan van de taalgrens.
               </p>
             </div>
+          </section>
+        )}
+      </main>
 
-            <div style={{ margin: "0 -24px 48px -24px", position: "relative", overflow: "hidden" }}>
-              <div style={{ textAlign: "center", marginBottom: "24px" }}>
-                <h3 style={{ color: "var(--fg2)", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Chronologie van de Taalgrens in Landen</h3>
-              </div>
-              
-              <div style={{ position: "relative" }}>
-                {/* Left Fade & Button */}
-                <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to right, var(--bg) 0%, transparent 100%)", zIndex: 10, display: "flex", alignItems: "center", pointerEvents: "none" }}>
-                  <button 
-                    className="timeline-nav-btn"
-                    onClick={() => scrollTimeline('left')}
-                    style={{ pointerEvents: "auto", marginLeft: "16px", width: "48px", height: "48px", borderRadius: "50%", background: "var(--gls)", border: "1px solid var(--gls-br)", color: "var(--ac)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "all 0.2s ease", fontSize: "1.2rem", boxShadow: "var(--sh)" }}
-                  >
-                    ←
-                  </button>
-                </div>
-
-                {/* Right Fade & Button */}
-                <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to left, var(--bg) 0%, transparent 100%)", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "flex-end", pointerEvents: "none" }}>
-                  <button 
-                    className="timeline-nav-btn"
-                    onClick={() => scrollTimeline('right')}
-                    style={{ pointerEvents: "auto", marginRight: "16px", width: "48px", height: "48px", borderRadius: "50%", background: "var(--gls)", border: "1px solid var(--gls-br)", color: "var(--ac)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "all 0.2s ease", fontSize: "1.2rem", boxShadow: "var(--sh)" }}
-                  >
-                    →
-                  </button>
-                </div>
-
-                <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px", msOverflowStyle: "none", scrollbarWidth: "none" }}>
-                  <div style={{ display: "flex", gap: "64px", alignItems: "flex-start", position: "relative", minWidth: "max-content" }}>
-                    <div style={{ position: "absolute", top: "358px", left: 0, right: 0, height: "2px", background: "var(--ac)", zIndex: 1 }} />
-                  
-                  {timelineData.map((item, index) => {
-                    const isTop = index % 2 === 0;
-                    
-                    const content = (
-                      <div 
-                        style={{ 
-                          width: "100%",
-                          cursor: "pointer",
-                          display: "flex",
-                          flexDirection: "column",
-                          alignItems: "center",
-                          position: "relative"
-                        }} 
-                        onClick={() => setExpandedTimelineId(expandedTimelineId === item.id ? null : item.id)}
-                      >
-                         <div style={{ position: "absolute", [isTop ? "bottom" : "top"]: "-16px", left: "50%", width: "1px", height: "16px", background: "var(--ac)" }} />
-
-                         <div style={{ color: "var(--ac)", fontWeight: 700, fontSize: "1.1rem", marginBottom: "8px", letterSpacing: "0.05em", textAlign: "center" }}>{item.year}</div>
-                         <h4 style={{ color: "var(--fg)", fontSize: "1.1rem", fontWeight: 600, margin: 0, textAlign: "center", lineHeight: "1.4" }}>{item.title}</h4>
-                         
-                         {expandedTimelineId !== item.id && (
-                           <div className="click-indicator" style={{ fontSize: "0.8rem", color: "var(--fg2)", marginTop: "8px", textTransform: "uppercase", letterSpacing: "0.05em", transition: "opacity 0.2s ease" }}>
-                             Klik om te lezen
-                           </div>
-                         )}
-
-                         <div style={{ maxHeight: expandedTimelineId === item.id ? "500px" : "0px", overflow: "hidden", transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)", width: "100%", opacity: expandedTimelineId === item.id ? 1 : 0 }}>
-                           <div style={{ marginTop: "16px", background: "var(--gls)", padding: "16px", borderRadius: "var(--br-sm)", border: "1px solid var(--gls-br)", color: "var(--fg2)", fontSize: "0.95rem", lineHeight: "1.6", textAlign: "left", boxShadow: "var(--sh)" }}>
-                             {item.content}
-                           </div>
-                         </div>
-                      </div>
-                    );
-
-                    return (
-                      <div key={item.id} className="timeline-node" style={{ display: "flex", flexDirection: "column", width: "320px", flexShrink: 0, position: "relative", zIndex: 2 }}>
-                        <div style={{ height: "350px", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "16px" }}>
-                          {isTop && content}
-                        </div>
-                        
-                        <div style={{ height: "18px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
-                          <div className="timeline-dot" style={{ width: "16px", height: "16px", borderRadius: "50%", background: "var(--bg)", border: "3px solid var(--ac)", boxShadow: "0 0 10px rgba(239, 51, 64, 0.5)", transition: "all 0.3s ease" }} />
-                        </div>
-                        
-                        <div style={{ paddingTop: "16px", display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
-                          {!isTop && content}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-              </div>
+      {activeTab === 'Overzicht' && (
+        <div style={{ margin: "0 -24px 48px -24px", position: "relative", overflow: "hidden", animation: "fade-in 0.5s ease" }}>
+          <div style={{ textAlign: "center", marginBottom: "24px" }}>
+            <h3 style={{ color: "var(--fg2)", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Chronologie van de Taalgrens in Landen</h3>
+          </div>
+          
+          <div style={{ position: "relative" }}>
+            {/* Left Fade & Button */}
+            <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to right, var(--bg) 0%, transparent 100%)", zIndex: 10, display: "flex", alignItems: "center", pointerEvents: "none" }}>
+              <button 
+                className="timeline-nav-btn"
+                onClick={() => scrollTimeline('left')}
+                style={{ pointerEvents: "auto", marginLeft: "16px", width: "48px", height: "48px", borderRadius: "50%", background: "var(--gls)", border: "1px solid var(--gls-br)", color: "var(--ac)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "all 0.2s ease", fontSize: "1.2rem", boxShadow: "var(--sh)" }}
+              >
+                ←
+              </button>
             </div>
+
+            {/* Right Fade & Button */}
+            <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to left, var(--bg) 0%, transparent 100%)", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "flex-end", pointerEvents: "none" }}>
+              <button 
+                className="timeline-nav-btn"
+                onClick={() => scrollTimeline('right')}
+                style={{ pointerEvents: "auto", marginRight: "16px", width: "48px", height: "48px", borderRadius: "50%", background: "var(--gls)", border: "1px solid var(--gls-br)", color: "var(--ac)", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", transition: "all 0.2s ease", fontSize: "1.2rem", boxShadow: "var(--sh)" }}
+              >
+                →
+              </button>
+            </div>
+
+            <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px", msOverflowStyle: "none", scrollbarWidth: "none" }}>
+              <div style={{ display: "flex", gap: "64px", alignItems: "flex-start", position: "relative", minWidth: "max-content" }}>
+                <div style={{ position: "absolute", top: "358px", left: 0, right: 0, height: "2px", background: "var(--ac)", zIndex: 1 }} />
+              
+              {timelineData.map((item, index) => {
+                const isTop = index % 2 === 0;
+                
+                const content = (
+                  <div 
+                    style={{ 
+                      width: "100%",
+                      cursor: "pointer",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      position: "relative"
+                    }} 
+                    onClick={() => setExpandedTimelineId(expandedTimelineId === item.id ? null : item.id)}
+                  >
+                     <div style={{ position: "absolute", [isTop ? "bottom" : "top"]: "-16px", left: "50%", width: "1px", height: "16px", background: "var(--ac)" }} />
+
+                     <div style={{ color: "var(--ac)", fontWeight: 700, fontSize: "1.1rem", marginBottom: "8px", letterSpacing: "0.05em", textAlign: "center" }}>{item.year}</div>
+                     <h4 style={{ color: "var(--fg)", fontSize: "1.1rem", fontWeight: 600, margin: 0, textAlign: "center", lineHeight: "1.4" }}>{item.title}</h4>
+                     
+                     {expandedTimelineId !== item.id && (
+                       <div className="click-indicator" style={{ fontSize: "0.8rem", color: "var(--fg2)", marginTop: "8px", textTransform: "uppercase", letterSpacing: "0.05em", transition: "opacity 0.2s ease" }}>
+                         Klik om te lezen
+                       </div>
+                     )}
+
+                     <div style={{ maxHeight: expandedTimelineId === item.id ? "500px" : "0px", overflow: "hidden", transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)", width: "100%", opacity: expandedTimelineId === item.id ? 1 : 0 }}>
+                       <div style={{ marginTop: "16px", background: "var(--gls)", padding: "16px", borderRadius: "var(--br-sm)", border: "1px solid var(--gls-br)", color: "var(--fg2)", fontSize: "0.95rem", lineHeight: "1.6", textAlign: "left", boxShadow: "var(--sh)" }}>
+                         {item.content}
+                       </div>
+                     </div>
+                  </div>
+                );
+
+                return (
+                  <div key={item.id} className="timeline-node" style={{ display: "flex", flexDirection: "column", width: "320px", flexShrink: 0, position: "relative", zIndex: 2 }}>
+                    <div style={{ height: "350px", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "16px" }}>
+                      {isTop && content}
+                    </div>
+                    
+                    <div style={{ height: "18px", display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
+                      <div className="timeline-dot" style={{ width: "16px", height: "16px", borderRadius: "50%", background: "var(--bg)", border: "3px solid var(--ac)", boxShadow: "0 0 10px rgba(239, 51, 64, 0.5)", transition: "all 0.3s ease" }} />
+                    </div>
+                    
+                    <div style={{ paddingTop: "16px", display: "flex", flexDirection: "column", justifyContent: "flex-start" }}>
+                      {!isTop && content}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          </div>
+        </div>
+      )}
+
+      <main className="search-main" style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", position: "relative", zIndex: 11 }}>
+        {activeTab === 'Overzicht' && (
+          <section style={{ animation: "fade-in 0.5s ease" }}>
+
 
             {loading ? (
               <div style={{ textAlign: "center", color: "var(--fg2)" }}>Gegevens worden geladen...</div>
