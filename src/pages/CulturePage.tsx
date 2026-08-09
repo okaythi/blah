@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Nav } from "../components/Nav";
 import { CultureAPI } from "../api";
 import type { CultureFact, CultureImage, CultureAudio } from "../api";
@@ -143,6 +143,8 @@ export const CulturePage = () => {
   const [loading, setLoading] = useState(true);
   const [expandedTimelineId, setExpandedTimelineId] = useState<string | null>(null);
 
+  const timelineRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     CultureAPI.getAll().then(data => {
       setFacts(data.facts);
@@ -150,6 +152,19 @@ export const CulturePage = () => {
       setAudios(data.audios);
       setLoading(false);
     });
+  }, []);
+
+  useEffect(() => {
+    const el = timelineRef.current;
+    if (!el) return;
+    const onWheel = (e: WheelEvent) => {
+      if (e.deltaY === 0) return;
+      // Convert vertical scroll to horizontal scroll
+      el.scrollBy({ left: e.deltaY > 0 ? 150 : -150, behavior: 'smooth' });
+      e.preventDefault();
+    };
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
   }, []);
 
   return (
@@ -162,9 +177,9 @@ export const CulturePage = () => {
         <Nav />
       </div>
       
-      <main className="search-main" style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", marginTop: "24px" }}>
+      <main className="search-main" style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", position: "relative", zIndex: 11 }}>
         
-        <div className="nav-wrap" style={{ marginBottom: "24px", display: "flex", justifyContent: "center" }}>
+        <div className="nav-wrap" style={{ marginTop: "-20px", marginBottom: "48px", display: "flex", justifyContent: "center", transform: "scale(0.7124)", transformOrigin: "top center" }}>
           <div className="nav-pill" style={{ display: "flex" }}>
             <button
               onClick={() => setActiveTab('Overzicht')}
@@ -209,15 +224,15 @@ export const CulturePage = () => {
                 <h3 style={{ color: "var(--fg2)", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Chronologie van de Taalgrens in Landen</h3>
               </div>
               
-              <div style={{ overflowX: "auto", position: "relative", padding: "0 100px" }}>
-                <div style={{ position: "relative", height: "600px", display: "flex", alignItems: "center", minWidth: "max-content", gap: "250px" }}>
+              <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px" }}>
+                <div style={{ position: "relative", height: "480px", display: "flex", alignItems: "center", minWidth: "max-content", gap: "250px" }}>
                   <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: "2px", background: "var(--ac)" }} />
                   
                   {timelineData.map((item, index) => {
                     const isTop = index % 2 === 0;
                     return (
-                      <div key={item.id} style={{ position: "relative", width: "40px" }}>
-                        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "16px", height: "16px", borderRadius: "50%", background: "var(--bg)", border: "3px solid var(--ac)", boxShadow: "0 0 10px rgba(239, 51, 64, 0.5)", zIndex: 2 }} />
+                      <div key={item.id} className="timeline-node" style={{ position: "relative", width: "40px" }}>
+                        <div className="timeline-dot" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "16px", height: "16px", borderRadius: "50%", background: "var(--bg)", border: "3px solid var(--ac)", boxShadow: "0 0 10px rgba(239, 51, 64, 0.5)", zIndex: 2, transition: "all 0.3s ease" }} />
                         
                         <div 
                           style={{ 
@@ -230,7 +245,8 @@ export const CulturePage = () => {
                             cursor: "pointer",
                             display: "flex",
                             flexDirection: "column",
-                            alignItems: "center"
+                            alignItems: "center",
+                            transition: "all 0.3s ease"
                           }} 
                           onClick={() => setExpandedTimelineId(expandedTimelineId === item.id ? null : item.id)}
                         >
@@ -239,7 +255,13 @@ export const CulturePage = () => {
                            <div style={{ color: "var(--ac)", fontWeight: 700, fontSize: "1.1rem", marginBottom: "8px", letterSpacing: "0.05em", textAlign: "center" }}>{item.year}</div>
                            <h4 style={{ color: "var(--fg)", fontSize: "1.1rem", fontWeight: 600, margin: 0, textAlign: "center", lineHeight: "1.4" }}>{item.title}</h4>
                            
-                           <div style={{ height: expandedTimelineId === item.id ? "180px" : "0px", overflow: "hidden", transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)", width: "100%", opacity: expandedTimelineId === item.id ? 1 : 0 }}>
+                           {expandedTimelineId !== item.id && (
+                             <div className="click-indicator" style={{ fontSize: "0.8rem", color: "var(--fg2)", marginTop: "8px", textTransform: "uppercase", letterSpacing: "0.05em", transition: "opacity 0.2s ease" }}>
+                               Klik om te lezen
+                             </div>
+                           )}
+
+                           <div style={{ maxHeight: expandedTimelineId === item.id ? "500px" : "0px", overflow: "hidden", transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)", width: "100%", opacity: expandedTimelineId === item.id ? 1 : 0 }}>
                              <div style={{ marginTop: "16px", background: "var(--gls)", padding: "16px", borderRadius: "var(--br-sm)", border: "1px solid var(--gls-br)", color: "var(--fg2)", fontSize: "0.95rem", lineHeight: "1.6", textAlign: "left", boxShadow: "var(--sh)" }}>
                                {item.content}
                              </div>
@@ -421,6 +443,31 @@ export const CulturePage = () => {
         @keyframes fade-in {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        .timeline-scroll::-webkit-scrollbar {
+          height: 6px;
+        }
+        .timeline-scroll::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.02);
+          border-radius: 4px;
+        }
+        .timeline-scroll::-webkit-scrollbar-thumb {
+          background: var(--gls-br2);
+          border-radius: 4px;
+        }
+        .timeline-scroll::-webkit-scrollbar-thumb:hover {
+          background: var(--ac);
+        }
+        .timeline-node:hover .timeline-dot {
+          transform: translate(-50%, -50%) scale(1.4) !important;
+          box-shadow: 0 0 15px rgba(239, 51, 64, 0.8) !important;
+        }
+        .click-indicator {
+          opacity: 0.5;
+        }
+        .timeline-node:hover .click-indicator {
+          opacity: 1;
+          color: var(--ac) !important;
         }
       `}</style>
     </div>
