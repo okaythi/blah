@@ -54,14 +54,21 @@ export interface CultureImage {
   created_at: number;
 }
 
+export interface CultureAudio {
+  id: string;
+  audio_url: string;
+  caption: string | null;
+  created_at: number;
+}
+
 export const CultureAPI = {
-  getAll: async (): Promise<{ facts: CultureFact[], images: CultureImage[] }> => {
+  getAll: async (): Promise<{ facts: CultureFact[], images: CultureImage[], audios: CultureAudio[] }> => {
     try {
       const rs = await fetch("/api/culture");
-      if (!rs.ok) return { facts: [], images: [] };
+      if (!rs.ok) return { facts: [], images: [], audios: [] };
       return await rs.json();
     } catch {
-      return { facts: [], images: [] };
+      return { facts: [], images: [], audios: [] };
     }
   }
 };

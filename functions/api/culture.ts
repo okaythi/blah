@@ -10,10 +10,15 @@ export const onRequestGet = async (context: EventContext<Env, string, unknown>) 
       `SELECT * FROM culture_images ORDER BY created_at DESC`
     ).all();
 
+    const audios = await context.env.DB.prepare(
+      `SELECT * FROM culture_audios ORDER BY created_at DESC`
+    ).all();
+
     return new Response(
       JSON.stringify({
         facts: facts.results || [],
-        images: images.results || []
+        images: images.results || [],
+        audios: audios.results || []
       }),
       {
         headers: { "content-type": "application/json" },
