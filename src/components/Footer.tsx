@@ -1,6 +1,7 @@
 export const Footer = () => {
   return (
     <footer style={{
+      position: "relative",
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
@@ -20,7 +21,7 @@ export const Footer = () => {
         </div>
       </div>
       
-      <div className="footer-center" style={{ textAlign: "center", flex: 1 }}>
+      <div className="footer-center" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", textAlign: "center" }}>
         <p>&copy; {new Date().getFullYear()} Alle rechten voorbehouden.</p>
       </div>
 
