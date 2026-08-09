@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, Plus, Trash2 } from 'lucide-react';
-import type { Entry, Pos, Reg, Sts, Def, Colloc } from '../types';
-import { POS_L, REG_L, STS_L } from '../types';
+import type { Entry, Pos, Reg, Sts, Def, Colloc, MorphNoun, MorphVerb, MorphAdj } from '../../../types';
+import { POS_L, REG_L, STS_L } from '../../../types';
 
 interface EFProps {
   init?: Entry;
@@ -31,7 +31,8 @@ export function EF({ init, onSave, onCancel }: EFProps) {
   const [tone, setTone] = useState(init?.tone || '');
   const [audio, setAudio] = useState(init?.audio_url || '');
 
-  const [morph, setMorph] = useState<Record<string, unknown>>(init?.morph as Record<string, unknown> || {});
+  type AnyMorph = Partial<MorphNoun & MorphVerb & MorphAdj>;
+  const [morph, setMorph] = useState<AnyMorph>(init?.morph as AnyMorph || {});
   const [defs, setDefs] = useState<Def[]>(init?.defs || []);
   const [colloc, setColloc] = useState<Colloc[]>(init?.colloc || []);
 
@@ -51,8 +52,8 @@ export function EF({ init, onSave, onCancel }: EFProps) {
     });
   };
 
-  const updateMorph = (k: string, v: unknown) => setMorph((p) => ({ ...p, [k]: v }));
-  const updateConj = (k: string, v: string) => setMorph((p) => ({ ...p, conj: { ...((p.conj as Record<string, unknown>) || {}), [k]: v } }));
+  const updateMorph = (k: keyof AnyMorph, v: unknown) => setMorph((p) => ({ ...p, [k]: v } as AnyMorph));
+  const updateConj = (k: string, v: string) => setMorph((p) => ({ ...p, conj: { ...(p.conj || {}), [k]: v } } as AnyMorph));
 
   return (
     <form onSubmit={handleSave} className="adm-card">
@@ -109,7 +110,7 @@ export function EF({ init, onSave, onCancel }: EFProps) {
             <div className="adm-grid">
               <div className="fg">
                 <label className="lbl">Geslacht</label>
-                <select className="inp-f" value={morph.gnd || ''} onChange={e => updateMorph('gnd', e.target.value)}>
+                <select className="inp-f" value={morph.gnd || ''} onChange={e => updateMorph('gnd', e.target.value as 'm' | 'v' | 'o')}>
                   <option value="">--</option>
                   <option value="m">Mannelijk</option>
                   <option value="v">Vrouwelijk</option>
@@ -184,7 +185,7 @@ export function EF({ init, onSave, onCancel }: EFProps) {
             <div style={{display: 'flex', width: '100%', gap: 12}}>
               <div className="fg" style={{flex: 2, marginBottom: 0}}>
                 <label className="lbl">Voorbeeldzin</label>
-                <input className="inp-f" value={d.ex} onChange={e => { const n = [...defs]; n[i].ex = e.target.value; setDefs(n); }} />
+                <input className="inp-f" value={d.ex} onChange={e => { const n = [...defs]; n[i].ex = e.target.value; setDefs(n); }} placeholder="Voorbeeldzin" />
               </div>
               <div className="fg" style={{flex: 1, marginBottom: 0}}>
                 <label className="lbl">Bron</label>

@@ -1,0 +1,1445 @@
+[
+  {
+    "id": "b9f2c8d1-7a43-41e9-92d5-cc72a9b4f001",
+    "word_lanes": "teneeste",
+    "lemma": "teneeste",
+    "word_nl": "ten eerste",
+    "example_sentence": "Teneeste echt sori djee mor ich gon gwn effe gans int plat moete klappe.",
+    "ipa": "təˈneːstə",
+    "broad_ipa": "təˈneːstə",
+    "narrow_ipa": "təˈneːstə",
+    "audio_url": "https://pub-XXXX.r2.dev/teneeste.mp3",
+    "tone": "Vlak",
+    "pos": "bw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Samentrekking van 'ten' en 'eerste'.",
+    "additional_metadata": "Gebruikt om een opsomming of argumentatie te starten.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "In de eerste plaats; om te beginnen.",
+        "ex": "Teneeste echt sori djee.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "d1c2a3b4-5e6f-7a8b-9c0d-e1f2a3b4c5d6",
+    "word_lanes": "djee",
+    "lemma": "djee",
+    "word_nl": "gij / jullie (of uitroep)",
+    "example_sentence": "Echt sori djee mor ich gon gwn effe int plat klappe.",
+    "ipa": "dʒeː",
+    "broad_ipa": "dʒeː",
+    "narrow_ipa": "dʒeːə",
+    "audio_url": "https://pub-XXXX.r2.dev/djee.mp3",
+    "tone": "Sleeptoon",
+    "pos": "tsw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Mogelijk een verbastering van 'god' (Jezus -> djee) of een variant van het voornaamwoord 'gij/djie'.",
+    "additional_metadata": "Vaak gebruikt als informele aanspreking of versterkende uitroep onder vrienden.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Tussenwerpsel of informele aanspreking van een groep/persoon.",
+        "ex": "Echt sori djee...",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "f5e4d3c2-b1a0-9876-5432-10abcdef1234",
+    "word_lanes": "mor",
+    "lemma": "mor",
+    "word_nl": "maar",
+    "example_sentence": "Echt sori djee mor ich gon gwn effe gans int plat moete klappe.",
+    "ipa": "mɔr",
+    "broad_ipa": "mɔr",
+    "narrow_ipa": "mɔr",
+    "audio_url": "https://pub-XXXX.r2.dev/mor.mp3",
+    "tone": "Kort",
+    "pos": "vw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Verkorting van het Middelnederlandse 'maer'.",
+    "additional_metadata": "Wordt vaak ook als 'ma' uitgesproken afhankelijk van het volgende woord.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Tegenstellend nevenschikkend voegwoord.",
+        "ex": "Ich wil wel, mor ich kan ni.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "1a2b3c4d-5e6f-7a8b-9c0d-e1f2a3b4c500",
+    "word_lanes": "gwn",
+    "lemma": "gewoeën",
+    "word_nl": "gewoon",
+    "example_sentence": "Ich gon gwn effe gans int plat klappe.",
+    "ipa": "ɣəˈwuən",
+    "broad_ipa": "ɣəˈwuən",
+    "narrow_ipa": "ɣəˈwuːən",
+    "audio_url": "https://pub-XXXX.r2.dev/gewoeen.mp3",
+    "tone": "Stijgend",
+    "pos": "bw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Van het Middelnederlandse 'gewone'.",
+    "additional_metadata": "Vaak afgekort als 'gwn' in geschreven dialect.",
+    "morph": {
+      "vgr": "gewoeëner",
+      "ovt": "gewoeënste",
+      "verbuig": "gewoeëne"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Zonder iets bijzonders; simpelweg.",
+        "ex": "Doe gullaage cultuur gwn de das oem.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "2b3c4d5e-6f7a-8b9c-0d1e-f2a3b4c5d6e7",
+    "word_lanes": "effe",
+    "lemma": "effe",
+    "word_nl": "even",
+    "example_sentence": "Ich gon gwn effe gans int plat moete klappe.",
+    "ipa": "ˈɛfə",
+    "broad_ipa": "ˈɛfə",
+    "narrow_ipa": "ˈɛfə",
+    "audio_url": "https://pub-XXXX.r2.dev/effe.mp3",
+    "tone": "Vlak",
+    "pos": "bw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Versmelting van 'even'.",
+    "additional_metadata": "Wordt ook wel als 'effkes' gebruikt in het Getelands.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Gedurende een korte tijd.",
+        "ex": "Wacht effe op mich.",
+        "src": ""
+      }
+    ],
+    "colloc": [
+      {
+        "w": "effe wachte",
+        "ex": "Ge moet effe wachte tot da we gereed zin."
+      }
+    ],
+    "xrefs": []
+  },
+  {
+    "id": "3c4d5e6f-7a8b-9c0d-1e2f-a3b4c5d6e7f8",
+    "word_lanes": "gans",
+    "lemma": "gans",
+    "word_nl": "helemaal / geheel",
+    "example_sentence": "Ich gon gwn effe gans int plat moete klappe.",
+    "ipa": "ɣɑns",
+    "broad_ipa": "ɣɑns",
+    "narrow_ipa": "ɣɑns",
+    "audio_url": "https://pub-XXXX.r2.dev/gans.mp3",
+    "tone": "Kort",
+    "pos": "bw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Van het Oergermaans *gansaz (geheel).",
+    "additional_metadata": "Verwant aan 'helegans' (wat al in de masterlist staat).",
+    "morph": {
+      "verbuig": "ganse"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "In zijn geheel; volledig.",
+        "ex": "D'n ganse boel was kapot.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "4d5e6f7a-8b9c-0d1e-2f3a-b4c5d6e7f8g9",
+    "word_lanes": "moete",
+    "lemma": "moete",
+    "word_nl": "moeten",
+    "example_sentence": "Ich gon gwn effe gans int plat moete klappe zn.",
+    "ipa": "ˈmutə",
+    "broad_ipa": "ˈmutə",
+    "narrow_ipa": "ˈmuːtə",
+    "audio_url": "https://pub-XXXX.r2.dev/moete.mp3",
+    "tone": "Neutraal",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Van het Oergermaans *mōtaną.",
+    "additional_metadata": "",
+    "morph": {
+      "sterk": false,
+      "vt": "moest",
+      "vd": "gemoete",
+      "conj": {
+        "ich": "moet",
+        "gè": "moet",
+        "hè": "moet",
+        "we": "moete",
+        "gull": "moet",
+        "zij": "moete"
+      }
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Verplicht zijn om iets te doen.",
+        "ex": "We moete doa aalemaal stik gelaak gieeve.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "5e6f7a8b-9c0d-1e2f-3a4b-c5d6e7f8g9h0",
+    "word_lanes": "zn",
+    "lemma": "zin",
+    "word_nl": "zijn (werkwoord)",
+    "example_sentence": "Ich gon gwn effe gans int plat moete klappe zn.",
+    "ipa": "zɪn",
+    "broad_ipa": "zɪn",
+    "narrow_ipa": "zɪn",
+    "audio_url": "https://pub-XXXX.r2.dev/zin.mp3",
+    "tone": "Kort",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Van het Oergermaans *wesaną en *beuną.",
+    "additional_metadata": "Dit is de infinitief of meervoudsvorm, vaak afgekort tot 'zn' online.",
+    "morph": {
+      "sterk": true,
+      "vt": "waar",
+      "vd": "geweest",
+      "conj": {
+        "ich": "zen",
+        "gè": "zèèt",
+        "hè": "is",
+        "we": "zin",
+        "gull": "zèèt",
+        "zij": "zin"
+      }
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Zich bevinden; bestaan (koppelwerkwoord).",
+        "ex": "...wa da zogezegd oersproenkelek goe en vrumd en slecht zou zen?",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "6f7a8b9c-0d1e-2f3a-4b5c-d6e7f8g9h0i1",
+    "word_lanes": "kost",
+    "lemma": "koste",
+    "word_nl": "kosten",
+    "example_sentence": "Da kost mich wa minder koptuure.",
+    "ipa": "kɔst",
+    "broad_ipa": "kɔst",
+    "narrow_ipa": "kɔst",
+    "audio_url": "https://pub-XXXX.r2.dev/koste.mp3",
+    "tone": "Kort",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Van het Oudfrans 'coster' (Latijn constare).",
+    "additional_metadata": "",
+    "morph": {
+      "sterk": false,
+      "vt": "kostte",
+      "vd": "gekost",
+      "conj": {
+        "ich": "kost",
+        "gè": "kost",
+        "hè": "kost",
+        "we": "koste",
+        "gull": "kost",
+        "zij": "koste"
+      }
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Een bepaalde inspanning of prijs vereisen.",
+        "ex": "Da nief huis eeft veel cente gekost.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "7a8b9c0d-1e2f-3a4b-5c6d-e7f8g9h0i1j2",
+    "word_lanes": "minder",
+    "lemma": "minder",
+    "word_nl": "minder",
+    "example_sentence": "Da kost mich wa minder koptuure.",
+    "ipa": "ˈmɪndər",
+    "broad_ipa": "ˈmɪndər",
+    "narrow_ipa": "ˈmɪndər",
+    "audio_url": "https://pub-XXXX.r2.dev/minder.mp3",
+    "tone": "Vlak",
+    "pos": "bw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *minnizō.",
+    "additional_metadata": "",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Een kleinere hoeveelheid of in mindere mate.",
+        "ex": "Drinkt es wa minder kaffe.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "8b9c0d1e-2f3a-4b5c-6d7e-f8g9h0i1j2k3",
+    "word_lanes": "ont",
+    "lemma": "oan het",
+    "word_nl": "aan het",
+    "example_sentence": "Ich zen al ieëlemoal zot ont weure.",
+    "ipa": "ɔnt",
+    "broad_ipa": "ɔnt",
+    "narrow_ipa": "ɔnt",
+    "audio_url": "https://pub-XXXX.r2.dev/ont.mp3",
+    "tone": "Kort",
+    "pos": "vz",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Samentrekking van 'aan' en 'het'.",
+    "additional_metadata": "Wordt als duratief (om een doorgaande actie aan te geven) gebruikt.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Drukt uit dat een handeling op dit moment gaande is.",
+        "ex": "Bompa is ont wèèreke i'den hof.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "9c0d1e2f-3a4b-5c6d-7e8f-g9h0i1j2k3l4",
+    "word_lanes": "mnen",
+    "lemma": "mijn",
+    "word_nl": "mijn",
+    "example_sentence": "Van in mnen aage kop te peize vr aal dees zwoar gedoe.",
+    "ipa": "mənən",
+    "broad_ipa": "mənən",
+    "narrow_ipa": "mənən",
+    "audio_url": "https://pub-XXXX.r2.dev/mnen.mp3",
+    "tone": "Vlak",
+    "pos": "vnw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *mīnaz.",
+    "additional_metadata": "Verbuiging van het bezittelijk voornaamwoord, specifiek voor mannelijke zelfstandige naamwoorden in het dialect.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Bezittelijk voornaamwoord eerste persoon enkelvoud (mannelijk).",
+        "ex": "Menn aage blaak es echt nen ielen oop miejer oopegegoan.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "0d1e2f3a-4b5c-6d7e-8f9g-h0i1j2k3l4m5",
+    "word_lanes": "kop",
+    "lemma": "kop",
+    "word_nl": "hoofd",
+    "example_sentence": "Ich zen al ieëlemoal zot ont weure van in mnen aage kop te peize.",
+    "ipa": "kɔp",
+    "broad_ipa": "kɔp",
+    "narrow_ipa": "kɔp",
+    "audio_url": "https://pub-XXXX.r2.dev/kop.mp3",
+    "tone": "Kort",
+    "pos": "zn",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Van het Latijn 'cuppa' (beker), later verschoven naar 'hoofd'.",
+    "additional_metadata": "",
+    "morph": {
+      "gnd": "m",
+      "pl": "koppe",
+      "dim": "köpke"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Het hoofd van een mens of dier.",
+        "ex": "Zine kop sloeg helegans ruuëd uit.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "1e2f3a4b-5c6d-7e8f-9g0h-i1j2k3l4m5n6",
+    "word_lanes": "dees",
+    "lemma": "deze / dit",
+    "word_nl": "deze / dit",
+    "example_sentence": "Vr aal dees zwoar gedoe gwn nog mor te snappe.",
+    "ipa": "deːs",
+    "broad_ipa": "deːs",
+    "narrow_ipa": "deːəs",
+    "audio_url": "https://pub-XXXX.r2.dev/dees.mp3",
+    "tone": "Sleeptoon",
+    "pos": "vnw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Middelnederlands 'dese'.",
+    "additional_metadata": "Wordt als aanwijzend voornaamwoord gebruikt voor objecten dichtbij.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Aanwijzend voornaamwoord, wijst naar iets in de buurt of zojuist besproken.",
+        "ex": "Pak dees es effe vaste veur mich.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "2f3a4b5c-6d7e-8f9g-0h1i-j2k3l4m5n6o7",
+    "word_lanes": "gedoe",
+    "lemma": "gedoe",
+    "word_nl": "gedoe / moeite",
+    "example_sentence": "Vr aal dees zwoar gedoe gwn nog mor te snappe.",
+    "ipa": "ɣəˈdu",
+    "broad_ipa": "ɣəˈdu",
+    "narrow_ipa": "ɣəˈduː",
+    "audio_url": "https://pub-XXXX.r2.dev/gedoe.mp3",
+    "tone": "Vlak",
+    "pos": "zn",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Afgeleid van het werkwoord 'doen' met voorvoegsel ge-.",
+    "additional_metadata": "",
+    "morph": {
+      "gnd": "o",
+      "pl": "",
+      "dim": ""
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Ingewikkelde, lastige gang van zaken of toestand.",
+        "ex": "Ge edd ieëlemoal gelaak in da stom gedoe.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "3a4b5c6d-7e8f-9g0h-1i2j-k3l4m5n6o7p8",
+    "word_lanes": "gepakt",
+    "lemma": "pakke",
+    "word_nl": "pakken / nemen",
+    "example_sentence": "Ich em mich wa taad gepakt vr r e kiejer goe noa te loere.",
+    "ipa": "ɣəˈpɑkt",
+    "broad_ipa": "ɣəˈpɑkt",
+    "narrow_ipa": "ɣəˈpɑkt",
+    "audio_url": "https://pub-XXXX.r2.dev/gepakt.mp3",
+    "tone": "Kort",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Middelnederlands 'packen'.",
+    "additional_metadata": "Vaak gebruikt in de zin van tijd of moeite nemen.",
+    "morph": {
+      "sterk": false,
+      "vt": "pakte",
+      "vd": "gepakt",
+      "conj": {
+        "ich": "pak",
+        "gè": "pakt",
+        "hè": "pakt",
+        "we": "pakke",
+        "gull": "pakt",
+        "zij": "pakke"
+      }
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Vastnemen of (in figuurlijke zin) tijd/ruimte nemen voor iets.",
+        "ex": "Da begint vrumd ontaard gepakt van de bazen...",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "4b5c6d7e-8f9g-0h1i-2j3k-l4m5n6o7p8q9",
+    "word_lanes": "tien en t aander",
+    "lemma": "et ien en t aander",
+    "word_nl": "het een en ander",
+    "example_sentence": "Ich em mich wa taad gepakt vr tien en t aander oep te zeuke.",
+    "ipa": "tɪn ɛn ˈtɑndər",
+    "broad_ipa": "tɪn ɛn ˈtɑndər",
+    "narrow_ipa": "tɪn ɛn ˈtɑndər",
+    "audio_url": "https://pub-XXXX.r2.dev/tien_en_t_aander.mp3",
+    "tone": "Variabel",
+    "pos": "uitdr",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Vaste uitdrukking (idiom).",
+    "additional_metadata": "Wordt geschreven als het klinkt: 'tien' (het een).",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Verschillende dingen; wat informatie.",
+        "ex": "Ich moet nog tien en t aander oepruume veurda gè kump.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "5c6d7e8f-9g0h-1i2j-3k4l-m5n6o7p8q9r0",
+    "word_lanes": "oep",
+    "lemma": "oep",
+    "word_nl": "op",
+    "example_sentence": "Ich em mich wa taad gepakt vr tien en t aander oep te zeuke.",
+    "ipa": "up",
+    "broad_ipa": "up",
+    "narrow_ipa": "up",
+    "audio_url": "https://pub-XXXX.r2.dev/oep.mp3",
+    "tone": "Kort",
+    "pos": "vz",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *upp.",
+    "additional_metadata": "Vaak gebruikt in de streek als variant van 'op', vooral in samenstellingen of uitdrukkingen.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Voorzetsel van plaats of handeling (op).",
+        "ex": "Ruumt da boeltje es rap oep ze!",
+        "src": ""
+      }
+    ],
+    "colloc": [
+      {
+        "w": "oepzeuke",
+        "ex": "Ich gon da es oepzeuke i't woordenboek."
+      }
+    ],
+    "xrefs": []
+  },
+  {
+    "id": "6d7e8f9g-0h1i-2j3k-4l5m-n6o7p8q9r0s1",
+    "word_lanes": "stik",
+    "lemma": "stik",
+    "word_nl": "stuk",
+    "example_sentence": "Ich moet och aalemaal stik gelaak gieeve eig.",
+    "ipa": "stɪk",
+    "broad_ipa": "stɪk",
+    "narrow_ipa": "stɪk",
+    "audio_url": "https://pub-XXXX.r2.dev/stik.mp3",
+    "tone": "Kort",
+    "pos": "zn",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *stukkiją.",
+    "additional_metadata": "Kan als zelfstandig naamwoord dienen ('een stuk') of bijwoordelijk ('een stuk beter').",
+    "morph": {
+      "gnd": "o",
+      "pl": "stikke",
+      "dim": "stukske"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Een gedeelte of een bepaalde hoeveelheid/mate van iets.",
+        "ex": "Deur t stik te menge mee t geleuf...",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [
+      {
+        "w": "stik gelaak gieeve",
+        "ex": "Ik moet u daar wel een stuk(je) gelijk in geven."
+      }
+    ],
+    "xrefs": []
+  },
+  {
+    "id": "7e8f9g0h-1i2j-3k4l-5m6n-o7p8q9r0s1t2",
+    "word_lanes": "oopegegoan",
+    "lemma": "opengoën",
+    "word_nl": "opengegaan",
+    "example_sentence": "Menn aage blaak es echt nen ielen oop miejer oopegegoan noa da ljeze.",
+    "ipa": "ˈoːpəɣəɣuən",
+    "broad_ipa": "ˈoːpəɣəɣuən",
+    "narrow_ipa": "ˈoːpəɣəɣuːən",
+    "audio_url": "https://pub-XXXX.r2.dev/oopegegoan.mp3",
+    "tone": "Dalend-Stijgend (op goën)",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Samenstelling van 'open' en voltooid deelwoord van 'goën'.",
+    "additional_metadata": "",
+    "morph": {
+      "sterk": true,
+      "vt": "ging oope",
+      "vd": "oopegegoan",
+      "conj": {}
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Het zich openen; het verruimen van het blikveld (figuurlijk).",
+        "ex": "De deure zin amol oopegegoan vandoag.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "8f9g0h1i-2j3k-4l5m-6n7o-p8q9r0s1t2u3",
+    "word_lanes": "gelek",
+    "lemma": "gelek",
+    "word_nl": "zoals / net als / gelijk",
+    "example_sentence": "Ge edd euverschoot van gelek euver da iniejensmelte van aal da geleulf zo van like...",
+    "ipa": "ɣəˈlɛk",
+    "broad_ipa": "ɣəˈlɛk",
+    "narrow_ipa": "ɣəˈlɛk",
+    "audio_url": "https://pub-XXXX.r2.dev/gelek.mp3",
+    "tone": "Kort",
+    "pos": "vw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Van het Middelnederlandse 'gelijc'.",
+    "additional_metadata": "In deze context gebruikt als 'zoals' (net als), niet te verwarren met 'gelijk hebben'.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Vergelijkend voegwoord; net zoals, op de manier van.",
+        "ex": "Gelek mee da christendom int zuiden dus.",
+        "src": "Discord Log 2026"
+      },
+      {
+        "sn": 2,
+        "def": "Het bij het rechte eind hebben (als zelfstandig naamwoord).",
+        "ex": "Ge edd euverschoot van gelek.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "9g0h1i2j-3k4l-5m6n-7o8p-q9r0s1t2u3v4",
+    "word_lanes": "iniejensmelte",
+    "lemma": "iniejensmelte",
+    "word_nl": "ineensmelten / samensmelten",
+    "example_sentence": "Ge edd euverschoot van gelek euver da iniejensmelte van aal da geleuf.",
+    "ipa": "ɪˈniənsmɛltə",
+    "broad_ipa": "ɪˈniənsmɛltə",
+    "narrow_ipa": "ɪˈniːənsmɛltə",
+    "audio_url": "https://pub-XXXX.r2.dev/iniejensmelte.mp3",
+    "tone": "Neutraal",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Samenstelling van 'iniejen' (ineen) en 'smelte' (smelten).",
+    "additional_metadata": "",
+    "morph": {
+      "sterk": false,
+      "vt": "smolt iniejen",
+      "vd": "iniejengesmolte",
+      "conj": {
+        "ich": "smelt iniejen",
+        "gè": "smelt iniejen",
+        "hè": "smelt iniejen",
+        "we": "smelte iniejen",
+        "gull": "smelt iniejen",
+        "zij": "smelte iniejen"
+      }
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Het samengaan van twee verschillende culturen, zaken of concepten tot één geheel.",
+        "ex": "Dat is een prachtig iniejensmelte van tradisies.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "0h1i2j3k-4l5m-6n7o-8p9q-r0s1t2u3v4w5",
+    "word_lanes": "kwaame",
+    "lemma": "komme",
+    "word_nl": "kwamen",
+    "example_sentence": "Van de manne da de boel doa kwaame oeuverneme.",
+    "ipa": "ˈkwoːmə",
+    "broad_ipa": "ˈkwoːmə",
+    "narrow_ipa": "ˈkwoːmə",
+    "audio_url": "https://pub-XXXX.r2.dev/kwaame.mp3",
+    "tone": "Vlak",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Ovt meervoud van het Oergermaanse *kwemana.",
+    "additional_metadata": "De uitspraak helt vaak naar 'kwoame' of 'kwaame' afhankelijk van de precieze Getelandse tongval.",
+    "morph": {
+      "sterk": true,
+      "vt": "kwaam",
+      "vd": "gekomme",
+      "conj": {}
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Verleden tijd meervoud van komen; zich naar de spreker of een specifieke plek toe bewogen.",
+        "ex": "Ze kwaame hieël onverwachts binne.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "1i2j3k4l-5m6n-7o8p-9q0r-s1t2u3v4w5x6",
+    "word_lanes": "oeuverneme",
+    "lemma": "oeuverneme",
+    "word_nl": "overnemen",
+    "example_sentence": "Van de manne da de boel doa kwaame oeuverneme.",
+    "ipa": "ˈøːvərneːmə",
+    "broad_ipa": "ˈøːvərneːmə",
+    "narrow_ipa": "ˈøːvərneːmə",
+    "audio_url": "https://pub-XXXX.r2.dev/oeuverneme.mp3",
+    "tone": "Dalend",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Samenstelling van 'euver/oeuver' en 'neme'.",
+    "additional_metadata": "",
+    "morph": {
+      "sterk": true,
+      "vt": "nam oeuver",
+      "vd": "oeuvergenomme",
+      "conj": {}
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "De controle, macht of het bezit van iets of iemand overpakken.",
+        "ex": "Ge meugt da wèèrek wel effe van mich oeuverneme.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "2j3k4l5m-6n7o-8p9q-0r1s-t2u3v4w5x6y7",
+    "word_lanes": "bot",
+    "lemma": "bot",
+    "word_nl": "bot / zomaar / lomp",
+    "example_sentence": "Dawas ni alliejn gwn aalles bot aafpakke en kapotsloage dus...",
+    "ipa": "bɔt",
+    "broad_ipa": "bɔt",
+    "narrow_ipa": "bɔt",
+    "audio_url": "https://pub-XXXX.r2.dev/bot.mp3",
+    "tone": "Kort",
+    "pos": "bw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Van het Middelnederlands 'bot' (stomp, dom, onbehouwen).",
+    "additional_metadata": "",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Zonder pardon, ruw, zomaar zonder nuance.",
+        "ex": "He smeet de deure gwn bot toe.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "3k4l5m6n-7o8p-9q0r-1s2t-u3v4w5x6y7z8",
+    "word_lanes": "wortels",
+    "lemma": "wortel",
+    "word_nl": "roots / wortels",
+    "example_sentence": "Twas eig n vrie slemme meniejer vr ulle aage wortels in ljeeve te aawe.",
+    "ipa": "ˈwɔrtəls",
+    "broad_ipa": "ˈwɔrtəls",
+    "narrow_ipa": "ˈwɔrtəls",
+    "audio_url": "https://pub-XXXX.r2.dev/wortels.mp3",
+    "tone": "Neutraal",
+    "pos": "zn",
+    "register": "formeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *wurtz.",
+    "additional_metadata": "Voor de groente wordt in Getelands vaker 'pekes' gebruikt. Dit gaat meer over afkomst/plantenwortels.",
+    "morph": {
+      "gnd": "m",
+      "pl": "wortels",
+      "dim": "wortelke"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Culturele afkomst of basis (roots).",
+        "ex": "Onze wortels liggen i'deze grond.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": [
+      {
+        "id": "x1",
+        "src_id": "3k4l5m6n-7o8p-9q0r-1s2t-u3v4w5x6y7z8",
+        "tgt_id": "67cf3c6d-1203-49b6-854b-b51eac3027af",
+        "rel": "verwant",
+        "tgt_word": "pekes"
+      }
+    ]
+  },
+  {
+    "id": "4l5m6n7o-8p9q-0r1s-2t3u-v4w5x6y7z8a9",
+    "word_lanes": "wiete",
+    "lemma": "wiete",
+    "word_nl": "weten",
+    "example_sentence": "In e nief kleejke weet ge.",
+    "ipa": "ˈwiətə",
+    "broad_ipa": "ˈwiətə",
+    "narrow_ipa": "ˈwiːətə",
+    "audio_url": "https://pub-XXXX.r2.dev/wiete.mp3",
+    "tone": "Dalend",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *witaną.",
+    "additional_metadata": "De vervoeging 'weet ge' (weet je) is heel gangbaar als stopwoord aan het eind van een zin.",
+    "morph": {
+      "sterk": false,
+      "vt": "wist",
+      "vd": "gewiete",
+      "conj": {
+        "ich": "wiet",
+        "gè": "weet",
+        "hè": "weet",
+        "we": "wiete",
+        "gull": "weet",
+        "zij": "wiete"
+      }
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Kennis hebben van iets.",
+        "ex": "Ich wiet da na aalemaal ni zoeë goe.",
+        "src": ""
+      },
+      {
+        "sn": 2,
+        "def": "Stopwoord 'weet je'.",
+        "ex": "In e nief kleejke weet ge.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "5m6n7o8p-9q0r-1s2t-3u4v-w5x6y7z8a9b0",
+    "word_lanes": "emda",
+    "lemma": "omda",
+    "word_nl": "omdat",
+    "example_sentence": "Emda ze like tog gien aander keus oadde.",
+    "ipa": "ɛmˈdɑ",
+    "broad_ipa": "ɛmˈdɑ",
+    "narrow_ipa": "ɛmˈdɑ",
+    "audio_url": "https://pub-XXXX.r2.dev/emda.mp3",
+    "tone": "Kort",
+    "pos": "vw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Samensmelting van 'om' en 'dat'.",
+    "additional_metadata": "Wordt zowel als 'omda' of met een meer open 'e' als 'emda' gesproken.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Ondershikkend voegwoord van reden.",
+        "ex": "Tis mor omda de bezetters in den taad et as e wapen adden...",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "6n7o8p9q-0r1s-2t3u-4v5w-x6y7z8a9b0c1",
+    "word_lanes": "das",
+    "lemma": "de das oemdoen",
+    "word_nl": "de das omdoen / tenietdoen",
+    "example_sentence": "Doe gullaage cultuur gwn de das oem.",
+    "ipa": "dɑs",
+    "broad_ipa": "dɑs",
+    "narrow_ipa": "dɑs",
+    "audio_url": "https://pub-XXXX.r2.dev/das.mp3",
+    "tone": "Kort",
+    "pos": "uitdr",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Figuurlijk gebruik van wurgen met een kledingstuk (das).",
+    "additional_metadata": "Vaste uitdrukking die perfect samenvalt met het Standaardnederlands, maar veel gebruikt met 'oem'.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Iets kapot maken, ruïneren of doden (figuurlijk).",
+        "ex": "Da nief beleid eeft oës de das oemgedoan.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "7o8p9q0r-1s2t-3u4v-5w6x-y7z8a9b0c1d2",
+    "word_lanes": "blaave",
+    "lemma": "blaave",
+    "word_nl": "blijven",
+    "example_sentence": "Niks of nimmand kan in ljeeve blaave zoenger znen aage oan te passe e.",
+    "ipa": "ˈblɑːvə",
+    "broad_ipa": "ˈblɑːvə",
+    "narrow_ipa": "ˈblɑːvə",
+    "audio_url": "https://pub-XXXX.r2.dev/blaave.mp3",
+    "tone": "Vlak",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *bilībaną.",
+    "additional_metadata": "",
+    "morph": {
+      "sterk": true,
+      "vt": "bleef",
+      "vd": "gebleeve",
+      "conj": {
+        "ich": "blaaf",
+        "gè": "bleft",
+        "hè": "bleft",
+        "we": "blaave",
+        "gull": "bleft",
+        "zij": "blaave"
+      }
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Op dezelfde plaats, in dezelfde toestand of in leven behouden.",
+        "ex": "Bleft ma e bietje korter bè mich.",
+        "src": "Masterlist 2026"
+      }
+    ],
+    "colloc": [
+      {
+        "w": "in ljeeve blaave",
+        "ex": "Dat dialekt moet zekers in ljeeve blaave."
+      }
+    ],
+    "xrefs": []
+  },
+  {
+    "id": "8p9q0r1s-2t3u-4v5w-6x7y-z8a9b0c1d2e3",
+    "word_lanes": "oan te passe",
+    "lemma": "oanpasse",
+    "word_nl": "aanpassen",
+    "example_sentence": "Niks of nimmand kan in ljeeve blaave zoenger znen aage oan te passe e.",
+    "ipa": "ˈoːntəpɑsə",
+    "broad_ipa": "ˈoːntəpɑsə",
+    "narrow_ipa": "ˈoːntəpɑsə",
+    "audio_url": "https://pub-XXXX.r2.dev/oan_te_passe.mp3",
+    "tone": "Neutraal",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Samenstelling van 'aan' (oan) en 'passen'.",
+    "additional_metadata": "Hier gebruikt als reflexief (zich aanpassen).",
+    "morph": {
+      "sterk": false,
+      "vt": "paste oan",
+      "vd": "oangepast",
+      "conj": {}
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Veranderen om geschikt te zijn voor een nieuwe situatie of omgeving.",
+        "ex": "Znen aage oan te passe aan dees nief weireld.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "9q0r1s2t-3u4v-5w6x-7y8z-a9b0c1d2e3f4",
+    "word_lanes": "wulke",
+    "lemma": "wulke",
+    "word_nl": "welke / welk",
+    "example_sentence": "Oep WULKE moment weurd da nief gemengd boeltje dan egelek under aage niewue echte tradisie?",
+    "ipa": "ˈwʏlkə",
+    "broad_ipa": "ˈwʏlkə",
+    "narrow_ipa": "ˈwʏlkə",
+    "audio_url": "https://pub-XXXX.r2.dev/wulke.mp3",
+    "tone": "Vlak",
+    "pos": "vnw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *hwilikaz.",
+    "additional_metadata": "Interrogatief of relatief voornaamwoord.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Vragend voornaamwoord dat vraagt naar een keuze of specificatie uit een groep of categorie.",
+        "ex": "Wulke taad is 't egelek na?",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "0r1s2t3u-4v5w-6x7y-8z9a-b0c1d2e3f4g5",
+    "word_lanes": "gemengd",
+    "lemma": "menge",
+    "word_nl": "gemengd / mengen",
+    "example_sentence": "Oep WULKE moment weurd da nief gemengd boeltje dan egelek under aage niewue echte tradisie?",
+    "ipa": "ɣəˈmɛŋt",
+    "broad_ipa": "ɣəˈmɛŋt",
+    "narrow_ipa": "ɣəˈmɛŋt",
+    "audio_url": "https://pub-XXXX.r2.dev/gemengd.mp3",
+    "tone": "Neutraal",
+    "pos": "bn",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Voltooid deelwoord van 'mengen'.",
+    "additional_metadata": "Wordt vaak als bijvoeglijk naamwoord gebruikt om culturele versmelting aan te duiden.",
+    "morph": {
+      "verbuig": "gemengde"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Bestaande uit verschillende, door elkaar gehaalde of versmolten elementen.",
+        "ex": "Deur t stik te menge mee t geleuf van de manne da under adden oenderdrukt.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "1s2t3u4v-5w6x-7y8z-9a0b-c1d2e3f4g5h6",
+    "word_lanes": "zogezegd",
+    "lemma": "zogezegd",
+    "word_nl": "zogezegd / naar men zegt",
+    "example_sentence": "...tusse wa da zogezegd oersproenkelek goe en vrumd en slecht zou zen?",
+    "ipa": "ˈzuɣəzɛxt",
+    "broad_ipa": "ˈzuɣəzɛxt",
+    "narrow_ipa": "ˈzuːɣəzɛxt",
+    "audio_url": "https://pub-XXXX.r2.dev/zogezegd.mp3",
+    "tone": "Vlak",
+    "pos": "bw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Samenstelling van 'zo' en 'gezegd'.",
+    "additional_metadata": "Drukte vaak lichte scepsis of ironie uit over de echtheid van iets.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Zogenaamd; wat beweerd wordt maar waaraan getwijfeld kan worden.",
+        "ex": "Da was zogezegd helegans zaa aage schuld.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "2t3u4v5w-6x7y-8z9a-0b1c-d2e3f4g5h6i7",
+    "word_lanes": "objactieve",
+    "lemma": "objactief",
+    "word_nl": "objectief",
+    "example_sentence": "Waajlend akkedeeren.... er is doa gien objactieve meter vr oem da te wege..",
+    "ipa": "ɔbjɑkˈtiːvə",
+    "broad_ipa": "ɔbjɑkˈtiːvə",
+    "narrow_ipa": "ɔbjɑkˈtiːvə",
+    "audio_url": "https://pub-XXXX.r2.dev/objactieve.mp3",
+    "tone": "Vlak",
+    "pos": "bn",
+    "register": "formeel",
+    "entry_status": "actief",
+    "etym": "Leenwoord uit het Frans (objectif) / Latijn, met een dialectische klinkeraanpassing ('a' voor 'e').",
+    "additional_metadata": "Dialectische spelling van een nieuwerwens woord dat ingeburgerd raakt in gesprekken.",
+    "morph": {
+      "verbuig": "objactieve"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Gebaseerd op feiten en niet op meningen of gevoelens.",
+        "ex": "Er is doa gien objactieve meter vr oem da te wege.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "3u4v5w6x-7y8z-9a0b-1c2d-e3f4g5h6i7j8",
+    "word_lanes": "wege",
+    "lemma": "wege",
+    "word_nl": "wegen",
+    "example_sentence": "Waajlend akkedeeren.... er is doa gien objactieve meter vr oem da te wege..",
+    "ipa": "ˈweːɣə",
+    "broad_ipa": "ˈweːɣə",
+    "narrow_ipa": "ˈweːɣə",
+    "audio_url": "https://pub-XXXX.r2.dev/wege.mp3",
+    "tone": "Stijgend",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *weganą.",
+    "additional_metadata": "Figuurlijk gebruikt voor beoordelen/inschatten.",
+    "morph": {
+      "sterk": true,
+      "vt": "woog",
+      "vd": "gewooge",
+      "conj": {}
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Het gewicht of de waarde van iets bepalen.",
+        "ex": "Ge moet da goe wege veurda ge beslist.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "4v5w6x7y-8z9a-0b1c-2d3e-f4g5h6i7j8k9",
+    "word_lanes": "misko",
+    "lemma": "misko",
+    "word_nl": "misschien",
+    "example_sentence": "Misko maat ulder vergelijk mee die sproakpolitiek is pertang iel straf eig...",
+    "ipa": "ˈmɪsko",
+    "broad_ipa": "ˈmɪsko",
+    "narrow_ipa": "ˈmɪsko",
+    "audio_url": "https://pub-XXXX.r2.dev/misko.mp3",
+    "tone": "Kort",
+    "pos": "bw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Samentrekking of regionale verbastering van 'misschien' of 'misschiks'.",
+    "additional_metadata": "",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Geeft een mogelijkheid of onzekerheid aan.",
+        "ex": "Misko gon we mèèrege trug noa de mèèrt.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "5w6x7y8z-9a0b-1c2d-3e4f-g5h6i7j8k9l0",
+    "word_lanes": "straf",
+    "lemma": "straf",
+    "word_nl": "straf / sterk / indrukwekkend",
+    "example_sentence": "Misko maat ulder vergelijk mee die sproakpolitiek is pertang iel straf eig...",
+    "ipa": "strɑf",
+    "broad_ipa": "strɑf",
+    "narrow_ipa": "strɑf",
+    "audio_url": "https://pub-XXXX.r2.dev/straf.mp3",
+    "tone": "Kort",
+    "pos": "bn",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *strafpaz (strak, sterk).",
+    "additional_metadata": "Wordt in Vlaanderen en de dialecten veel gebruikt om aan te geven dat iets opmerkelijk of sterk is in betekenis.",
+    "morph": {
+      "vgr": "straffer",
+      "ovt": "strafste",
+      "verbuig": "straffe"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Opmerkelijk, indrukwekkend of erg sterk/gedurfd.",
+        "ex": "Da's een straf veroal dat ge doa vertelt.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "6x7y8z9a-0b1c-2d3e-4f5g-h6i7j8k9l0m1",
+    "word_lanes": "aindelijk",
+    "lemma": "aindelijk",
+    "word_nl": "eindelijk",
+    "example_sentence": "Want joa da let den euro ir aindelijk valle..",
+    "ipa": "ˈɛindələk",
+    "broad_ipa": "ˈɛindələk",
+    "narrow_ipa": "ˈaːindələk",
+    "audio_url": "https://pub-XXXX.r2.dev/aindelijk.mp3",
+    "tone": "Vlak",
+    "pos": "bw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *andijaz (einde).",
+    "additional_metadata": "Gekenmerkt door een bredere 'ai'-klank in plaats van de Standaardnederlandse 'ei'.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Na lange tijd wachten; ten slotte.",
+        "ex": "Aindelijk zeet ge doa trug thuis.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "7y8z9a0b-1c2d-3e4f-5g6h-i7j8k9l0m1n2",
+    "word_lanes": "euro",
+    "lemma": "euro",
+    "word_nl": "euro / kwartje",
+    "example_sentence": "Want joa da let den euro ir aindelijk valle..",
+    "ipa": "ˈøːro",
+    "broad_ipa": "ˈøːro",
+    "narrow_ipa": "ˈøːro",
+    "audio_url": "https://pub-XXXX.r2.dev/euro.mp3",
+    "tone": "Neutraal",
+    "pos": "zn",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Moderne munt, gebruikt in de gemoderniseerde uitdrukking 'de euro valt' (vroeger het kwartje/de frank).",
+    "additional_metadata": "Verving 'frank' in de bekende Vlaamse uitdrukking 'zijne frank is gevallen'.",
+    "morph": {
+      "gnd": "m",
+      "pl": "euro's",
+      "dim": "euroke"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Munteenheid, figuurlijk gebruikt voor begrip of inzicht.",
+        "ex": "Na let den euro aindelijk valle bij dèè kluut.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [
+      {
+        "w": "den euro let valle",
+        "ex": "Eindelijk het inzicht of begrip krijgen."
+      }
+    ],
+    "xrefs": []
+  },
+  {
+    "id": "8z9a0b1c-2d3e-4f5g-6h7i-j8k9l0m1n2o3",
+    "word_lanes": "voelt",
+    "lemma": "voele",
+    "word_nl": "voelen",
+    "example_sentence": "Tis mor omda de bezetters in den taad et as e wapen adden, da t vrum voelt.",
+    "ipa": "vult",
+    "broad_ipa": "vult",
+    "narrow_ipa": "vult",
+    "audio_url": "https://pub-XXXX.r2.dev/voelt.mp3",
+    "tone": "Kort",
+    "pos": "ww",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Oergermaans *fōlijaną.",
+    "additional_metadata": "",
+    "morph": {
+      "sterk": false,
+      "vt": "voelde",
+      "vd": "gevoeld",
+      "conj": {
+        "ich": "voel",
+        "gè": "voelt",
+        "hè": "voelt",
+        "we": "voele",
+        "gull": "voelt",
+        "zij": "voele"
+      }
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Gewaarworden met de zintuigen of het innerlijk ervaren.",
+        "ex": "Da nief kleejke voelt pertang vrieë goe oan.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "9a0b1c2d-3e4f-5g6h-7i8j-k9l0m1n2o3p4",
+    "word_lanes": "draai",
+    "lemma": "draai",
+    "word_nl": "draai / wending",
+    "example_sentence": "As de minse da woord pakke en doa ullen aage draai om gieve ist under sproak geweure.",
+    "ipa": "droːj",
+    "broad_ipa": "droːj",
+    "narrow_ipa": "droːj",
+    "audio_url": "https://pub-XXXX.r2.dev/draai.mp3",
+    "tone": "Sleeptoon",
+    "pos": "zn",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Afgeleid van draaien (Oergermaans *thrēaną).",
+    "additional_metadata": "Uitspraak neigt sterk naar de typische Getelandse open o (oa).",
+    "morph": {
+      "gnd": "m",
+      "pl": "draaie",
+      "dim": "draaike"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Een rotatie of figuurlijk een eigen interpretatie/wending aan iets geven.",
+        "ex": "Ze emme doa ullen aage draai on gegeve.",
+        "src": "Discord Log 2026"
+      }
+    ],
+    "colloc": [
+      {
+        "w": "nen aage draai gieve",
+        "ex": "Een eigen wending of invulling geven aan iets dat is overgenomen."
+      }
+    ],
+    "xrefs": []
+  },
+  {
+    "id": "0b1c2d3e-4f5g-6h7i-8j9k-l0m1n2o3p4q5",
+    "word_lanes": "oech",
+    "lemma": "oech",
+    "word_nl": "ook",
+    "example_sentence": "Da akkedeert perfect mee oe da creooltalev bv oech weireke emmik gezien.",
+    "ipa": "ux",
+    "broad_ipa": "ux",
+    "narrow_ipa": "uːx",
+    "audio_url": "https://pub-XXXX.r2.dev/oech.mp3",
+    "tone": "Neutraal",
+    "pos": "bw",
+    "register": "informeel",
+    "entry_status": "actief",
+    "etym": "Middelnederlands 'ooc' met dialectische ch-uitgang typisch voor Limburgse/Brabantse grensstreken.",
+    "additional_metadata": "Cruciaal woord dat sterk de streek verraadt.",
+    "morph": {},
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Bovendien, eveneens, tevens.",
+        "ex": "Geft mich da boeëk oech mor effe.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  },
+  {
+    "id": "1c2d3e4f-5g6h-7i8j-9k0l-m1n2o3p4q5r6",
+    "word_lanes": "ontaard",
+    "lemma": "ontaard",
+    "word_nl": "ontaard / afgedwaald",
+    "example_sentence": "Zo van, da begint vrumd ontaard gepakt van de bazen...",
+    "ipa": "ɔnˈtoːrt",
+    "broad_ipa": "ɔnˈtoːrt",
+    "narrow_ipa": "ɔnˈtoːrt",
+    "audio_url": "https://pub-XXXX.r2.dev/ontaard.mp3",
+    "tone": "Vlak",
+    "pos": "bn",
+    "register": "formeel",
+    "entry_status": "actief",
+    "etym": "Samenstelling met ont- en de stam van 'aard' (natuur, wezen).",
+    "additional_metadata": "Hier in sociolinguïstische zin gebruikt in een gesprek over dialectontwikkeling.",
+    "morph": {
+      "verbuig": "ontaarde"
+    },
+    "defs": [
+      {
+        "sn": 1,
+        "def": "Vervreemd van de eigen, oorspronkelijke natuur; buiten de norm vallend.",
+        "ex": "Da was nen ontaarde reactie van em.",
+        "src": ""
+      }
+    ],
+    "colloc": [],
+    "xrefs": []
+  }
+]

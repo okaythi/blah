@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { startRegistration, startAuthentication } from "@simplewebauthn/browser";
+import type { PublicKeyCredentialCreationOptionsJSON, PublicKeyCredentialRequestOptionsJSON } from "@simplewebauthn/browser";
 import { LogOut, BookOpen, Edit2, Trash2, Plus } from "lucide-react";
 import type { Entry } from "../types";
 import { parseEntry, POS_SHORT, STS_L } from "../types";
-import { EF } from "../components/EF";
-import { AdminAPI, AuthRes } from "../api";
+import { EF } from "../features/admin/components/EF";
+import { AdminAPI } from "../api";
+import type { AuthRes } from "../api";
 
 export const A = () => {
   const [ca, sca] = useState(false);
@@ -15,7 +17,7 @@ export const A = () => {
   const [ld, sld] = useState(false);
 
   useEffect(() => {
-    AdminAPI.auth({ act: "chk" })
+    (AdminAPI.auth({ act: "chk" }) as Promise<Response>)
       .then((r) => r.json())
       .then((d: AuthRes) => { if (d.c === 0) sca(true); })
       .catch(() => {});
@@ -30,14 +32,16 @@ export const A = () => {
       const d: AuthRes = await r.json();
 
       if (act === "reg_i") {
-        const v = await startRegistration({ optionsJSON: d.opts });
+        if (!d.opts) return;
+        const v = await startRegistration({ optionsJSON: d.opts as unknown as PublicKeyCredentialCreationOptionsJSON });
         const vR = await AdminAPI.auth({ act: "reg_v", id: d.id, u, p, c: d.opts?.challenge, resp: v }) as Response;
         if (!vR.ok) { serr("Verificatie van registratie mislukt."); sld(false); return; }
         const vD: AuthRes = await vR.json();
         if (vD.sid) { localStorage.setItem("sid", vD.sid); ssid(vD.sid); }
         else { serr("Geen sessie geretourneerd."); }
       } else {
-        const v = await startAuthentication({ optionsJSON: d.opts });
+        if (!d.opts) return;
+        const v = await startAuthentication({ optionsJSON: d.opts as unknown as PublicKeyCredentialRequestOptionsJSON });
         const vR = await AdminAPI.auth({ act: "log_v", c: d.opts?.challenge, resp: v }) as Response;
         if (!vR.ok) { serr("Verificatie van passkey mislukt."); sld(false); return; }
         const vD: AuthRes = await vR.json();

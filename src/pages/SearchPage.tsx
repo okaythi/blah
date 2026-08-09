@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Search } from "lucide-react";
-import type { Entry, XRef } from "../types";
-import { parseEntry } from "../types";
-import { DictionaryAPI, SearchResult } from "../api";
+import { DictionaryAPI } from "../api";
+import type { SearchResult } from "../api";
 import { RC } from "../components/RC";
 import { Nav } from "../components/Nav";
 

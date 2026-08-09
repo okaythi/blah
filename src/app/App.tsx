@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { S } from './pages/S';
-import { A } from './pages/A';
-import { I } from './pages/I';
+import { S } from '../pages/SearchPage';
+import { A } from '../pages/AdminPage';
+import { I } from '../pages/IndexPage';
 
 export default function App() {
   return (

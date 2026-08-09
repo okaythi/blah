@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
-import type { Entry, XRef } from "../types";
-import { parseEntry, POS_SHORT } from "../types";
-import { DictionaryAPI, SearchResult } from "../api";
+import { POS_SHORT } from "../types";
+import { DictionaryAPI } from "../api";
+import type { SearchResult } from "../api";
 import { RC } from "../components/RC";
 import { Nav } from "../components/Nav";
 
