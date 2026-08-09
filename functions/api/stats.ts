@@ -1,6 +1,6 @@
 import type { Env } from "../types";
 
-export const onRequestGet = async (context: EventContext<Env, any, any>) => {
+export const onRequestGet = async (context: EventContext<Env, string, unknown>) => {
   try {
     const { results } = await context.env.DB.prepare(
       `SELECT COUNT(*) as count FROM entries WHERE entry_status = 'actief' OR entry_status = 'archaïsch'`

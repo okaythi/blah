@@ -52,7 +52,7 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
 
     if (act === "reg_v") {
       const v = await verifyRegistrationResponse({
-        response: req.resp as any,
+        response: req.resp as Response,
         expectedChallenge: req.c as string,
         expectedOrigin: origin,
         expectedRPID: rpID,
@@ -103,7 +103,7 @@ export const onRequestPost: PagesFunction<Env> = async (ctx) => {
       if (!pk) return fail(401, "Passkey not found.");
 
       const v = await verifyAuthenticationResponse({
-        response: resp as any,
+        response: resp as Response,
         expectedChallenge: req.c as string,
         expectedOrigin: origin,
         expectedRPID: rpID,

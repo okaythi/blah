@@ -22,7 +22,7 @@ export const onRequest: PagesFunction<Env> = async (ctx) => {
   
   try {
     const res = await db.prepare(s).bind(p).all();
-    const entries = res.results as any[];
+    const entries = res.results as Record<string, unknown>[];
 
     if (entries.length > 0) {
       const ids = entries.map(e => `'${e.id}'`).join(',');

@@ -4,7 +4,7 @@ const ck = async (db: D1Database, req: Request) => {
   const h = req.headers.get("Authorization");
   if (!h || !h.startsWith("Bearer ")) return false;
   const sid = h.split(" ")[1];
-  const s: any = await db.prepare("SELECT * FROM sessions WHERE id = ?").bind(sid).first();
+  const s = await db.prepare("SELECT * FROM sessions WHERE id = ?").bind(sid).first<Record<string, unknown>>();
   if (!s || s.expires_at < Date.now()) return false;
   return true;
 };
@@ -33,7 +33,7 @@ export const onRequest: PagesFunction<Env> = async (ctx) => {
     }
     
     if (m === "POST") {
-      const b = await ctx.request.json() as Record<string, any>;
+      const b = await ctx.request.json() as Record<string, unknown>;
       
       if (b.act === "xref_add") {
         const id = crypto.randomUUID();
@@ -67,7 +67,7 @@ export const onRequest: PagesFunction<Env> = async (ctx) => {
     }
     
     if (m === "PUT") {
-      const b = await ctx.request.json() as Record<string, any>;
+      const b = await ctx.request.json() as Record<string, unknown>;
       await db.prepare(`
         UPDATE entries SET 
           word_lanes = ?, lemma = ?, ipa = ?, broad_ipa = ?, narrow_ipa = ?, audio_url = ?,

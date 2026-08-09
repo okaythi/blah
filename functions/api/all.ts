@@ -1,6 +1,6 @@
 import type { Env } from "../types";
 
-export const onRequestGet = async (context: EventContext<Env, any, any>) => {
+export const onRequestGet = async (context: EventContext<Env, string, unknown>) => {
   try {
     const { results } = await context.env.DB.prepare(
       `SELECT * FROM entries WHERE entry_status = 'actief' OR entry_status = 'archaïsch' ORDER BY LOWER(word_lanes) ASC`
@@ -19,8 +19,8 @@ export const onRequestGet = async (context: EventContext<Env, any, any>) => {
     ).all();
     const crList = crRes.results || [];
 
-    const final = results.map((r: any) => {
-      const xr = crList.filter((c: any) => c.src_id === r.id);
+    const final = results.map((r: Record<string, unknown>) => {
+      const xr = crList.filter((c: Record<string, unknown>) => c.src_id === r.id);
       return { ...r, xrefs: xr };
     });
 

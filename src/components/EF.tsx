@@ -5,11 +5,11 @@ import { POS_L, REG_L, STS_L } from '../types';
 
 interface EFProps {
   init?: Entry;
-  onSave: (data: any) => Promise<void>;
+  onSave: (data: Record<string, unknown>) => Promise<void>;
   onCancel?: () => void;
 }
 
-const Sec = ({ title, open, onToggle, children }: any) => (
+const Sec = ({ title, open, onToggle, children }: { title: string; open: boolean; onToggle: () => void; children: React.ReactNode }) => (
   <div className="sec">
     <div className={`sec-hd ${open ? 'sec-hd--open' : ''}`} onClick={onToggle}>
       <span>{title}</span>
@@ -31,7 +31,7 @@ export function EF({ init, onSave, onCancel }: EFProps) {
   const [tone, setTone] = useState(init?.tone || '');
   const [audio, setAudio] = useState(init?.audio_url || '');
 
-  const [morph, setMorph] = useState<any>(init?.morph || {});
+  const [morph, setMorph] = useState<Record<string, unknown>>(init?.morph as Record<string, unknown> || {});
   const [defs, setDefs] = useState<Def[]>(init?.defs || []);
   const [colloc, setColloc] = useState<Colloc[]>(init?.colloc || []);
 
@@ -51,8 +51,8 @@ export function EF({ init, onSave, onCancel }: EFProps) {
     });
   };
 
-  const updateMorph = (k: string, v: any) => setMorph((p: any) => ({ ...p, [k]: v }));
-  const updateConj = (k: string, v: string) => setMorph((p: any) => ({ ...p, conj: { ...(p.conj || {}), [k]: v } }));
+  const updateMorph = (k: string, v: unknown) => setMorph((p) => ({ ...p, [k]: v }));
+  const updateConj = (k: string, v: string) => setMorph((p) => ({ ...p, conj: { ...((p.conj as Record<string, unknown>) || {}), [k]: v } }));
 
   return (
     <form onSubmit={handleSave} className="adm-card">

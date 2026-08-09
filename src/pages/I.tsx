@@ -1,29 +1,26 @@
 import { useState, useEffect, useMemo } from "react";
 import type { Entry, XRef } from "../types";
 import { parseEntry, POS_SHORT } from "../types";
+import { DictionaryAPI, SearchResult } from "../api";
 import { RC } from "../components/RC";
 import { Nav } from "../components/Nav";
 
 export const I = () => {
-  const [data, setData] = useState<(Entry & { xrefs?: XRef[] })[]>([]);
+  const [data, setData] = useState<SearchResult[]>([]);
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/all")
-      .then((r) => r.json())
-      .then((j) => {
-        setData(j.map((x: any) => parseEntry(x)));
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    DictionaryAPI.getAll().then((d) => {
+      setData(d);
+      setLoading(false);
+    }).catch(() => setLoading(false));
   }, []);
 
   const grouped = useMemo(() => {
-    const groups: Record<string, (Entry & { xrefs?: XRef[] })[]> = {};
+    const groups: Record<string, SearchResult[]> = {};
     for (const e of data) {
       const first = e.word_lanes.charAt(0).toUpperCase();
-      // Handle special characters if needed, but for now simple upper case
       const letter = first.match(/[A-Z]/) ? first : "#";
       if (!groups[letter]) groups[letter] = [];
       groups[letter].push(e);

@@ -2,26 +2,22 @@ import { useState, useEffect, useRef } from "react";
 import { Search } from "lucide-react";
 import type { Entry, XRef } from "../types";
 import { parseEntry } from "../types";
+import { DictionaryAPI, SearchResult } from "../api";
 import { RC } from "../components/RC";
 import { Nav } from "../components/Nav";
 
 export const S = () => {
   const [q, sq] = useState("");
-  const [r, sr] = useState<(Entry & { xrefs?: XRef[] })[]>([]);
+  const [r, sr] = useState<SearchResult[]>([]);
   const [ld, sld] = useState(false);
   const [hs, shs] = useState(false);
   const [tc, stc] = useState<number | null>(null);
   const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    fetch("/api/stats")
-      .then(r => r.json())
-      .then(d => {
-        if (d && typeof d.count === 'number') {
-          stc(d.count);
-        }
-      })
-      .catch(() => {});
+    DictionaryAPI.getStats().then(d => {
+      if (d !== null) stc(d);
+    });
   }, []);
 
   useEffect(() => {
@@ -43,13 +39,8 @@ export const S = () => {
     }
     sld(true);
     const id = setTimeout(async () => {
-      try {
-        const rs = await fetch(`/api/search?q=${encodeURIComponent(q.trim())}`);
-        if (rs.ok) {
-          const d: any[] = await rs.json();
-          sr(d.map(x => ({ ...parseEntry(x), xrefs: x.xrefs })));
-        }
-      } catch {}
+      const results = await DictionaryAPI.search(q);
+      sr(results);
       sld(false);
       shs(true);
     }, 250);
