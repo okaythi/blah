@@ -226,7 +226,7 @@ export const CulturePage = () => {
               </p>
             </div>
 
-            <div style={{ marginBottom: "48px", width: "100vw", position: "relative", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw", overflow: "hidden" }}>
+            <div style={{ margin: "0 -24px 48px -24px", position: "relative", overflow: "hidden" }}>
               <div style={{ textAlign: "center", marginBottom: "24px" }}>
                 <h3 style={{ color: "var(--fg2)", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Chronologie van de Taalgrens in Landen</h3>
               </div>
