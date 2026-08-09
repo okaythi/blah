@@ -226,7 +226,7 @@ export const CulturePage = () => {
               
               <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px", msOverflowStyle: "none", scrollbarWidth: "none" }}>
                 <div style={{ display: "flex", gap: "64px", alignItems: "flex-start", position: "relative", minWidth: "max-content" }}>
-                  <div style={{ position: "absolute", top: "258px", left: 0, right: 0, height: "2px", background: "var(--ac)", zIndex: 1 }} />
+                  <div style={{ position: "absolute", top: "358px", left: 0, right: 0, height: "2px", background: "var(--ac)", zIndex: 1 }} />
                   
                   {timelineData.map((item, index) => {
                     const isTop = index % 2 === 0;
@@ -264,7 +264,7 @@ export const CulturePage = () => {
 
                     return (
                       <div key={item.id} className="timeline-node" style={{ display: "flex", flexDirection: "column", width: "320px", flexShrink: 0, position: "relative", zIndex: 2 }}>
-                        <div style={{ height: "250px", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "16px" }}>
+                        <div style={{ height: "350px", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "16px" }}>
                           {isTop && content}
                         </div>
                         
