@@ -98,12 +98,20 @@ const D = ({ sid, lgout }: { sid: string; lgout: () => void }) => {
   const [ei, sei] = useState<string | null>(null);
   const [sv, ssv] = useState(false);
 
+  const [facts, setFacts] = useState<any[]>([]);
+  const [images, setImages] = useState<any[]>([]);
+  const [cfi, setCfi] = useState<string | null>(null); // 'fact_new', 'fact_<id>', 'img_new', 'img_<id>'
+
   const rl = async () => {
     const rx = await AdminAPI.getEntries(sid) as Response;
     if (rx.status === 401) { lgout(); return; }
     const j = await rx.json();
     sd((j.r || []).map((x: Record<string, unknown>) => parseEntry(x)));
     stc(j.c || 0);
+
+    const culture = await fetch('/api/culture').then(r => r.json());
+    setFacts(culture.facts || []);
+    setImages(culture.images || []);
   };
 
   useEffect(() => { rl(); }, [sid]);
@@ -123,6 +131,23 @@ const D = ({ sid, lgout }: { sid: string; lgout: () => void }) => {
     await AdminAPI.deleteEntry(sid, id);
     sd(d.filter((x) => x.id !== id));
     stc((c) => c - 1);
+  };
+
+  const saveCult = async (data: Record<string, unknown>, type: 'fact' | 'image') => {
+    ssv(true);
+    const m = cfi?.endsWith('_new') ? 'POST' : 'PUT';
+    const id = cfi?.split('_')[1];
+    const body = m === 'POST' ? { ...data, type } : { ...data, id, type };
+    await AdminAPI.saveCulture(sid, m, body);
+    setCfi(null);
+    await rl();
+    ssv(false);
+  };
+
+  const delCult = async (id: string, type: 'fact' | 'image') => {
+    if (!confirm(`Zeker dat je dit wil verwijderen?`)) return;
+    await AdminAPI.deleteCulture(sid, id, type);
+    await rl();
   };
 
   return (
@@ -204,6 +229,92 @@ const D = ({ sid, lgout }: { sid: string; lgout: () => void }) => {
               </tbody>
             </table>
           </div>
+        </div>
+      )}
+
+      {/* Culture Section */}
+      {!ei && !cfi && (
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, marginTop: 40 }}>
+          <div className="adm-card" style={{ animationDelay: "0.3s" }}>
+            <div className="adm-card-title">Cultuur: Feiten</div>
+            <button className="btn btn--sm" style={{marginBottom: 16}} onClick={() => setCfi('fact_new')}><Plus size={14}/> Nieuw Feit</button>
+            <table className="t">
+              <tbody>
+                {facts.map(f => (
+                  <tr key={f.id}>
+                    <td>{f.fact}</td>
+                    <td style={{width: 80}}>
+                      <div style={{display: 'flex', gap: 6}}>
+                        <button className="btn btn--ghost btn--sm" onClick={() => setCfi(`fact_${f.id}`)} style={{padding: 6}}><Edit2 size={13}/></button>
+                        <button className="btn btn--rd btn--sm" onClick={() => delCult(f.id, 'fact')} style={{padding: 6}}><Trash2 size={13}/></button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          
+          <div className="adm-card" style={{ animationDelay: "0.4s" }}>
+            <div className="adm-card-title">Cultuur: Afbeeldingen</div>
+            <button className="btn btn--sm" style={{marginBottom: 16}} onClick={() => setCfi('img_new')}><Plus size={14}/> Nieuwe Afbeelding</button>
+            <table className="t">
+              <tbody>
+                {images.map(i => (
+                  <tr key={i.id}>
+                    <td>
+                      <img src={i.image_url} style={{height: 40, borderRadius: 4, display: 'block'}} alt="" />
+                      <div style={{fontSize: '0.8rem', color: 'var(--fg2)'}}>{i.caption}</div>
+                    </td>
+                    <td style={{width: 80}}>
+                      <div style={{display: 'flex', gap: 6}}>
+                        <button className="btn btn--ghost btn--sm" onClick={() => setCfi(`img_${i.id}`)} style={{padding: 6}}><Edit2 size={13}/></button>
+                        <button className="btn btn--rd btn--sm" onClick={() => delCult(i.id, 'image')} style={{padding: 6}}><Trash2 size={13}/></button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Form for Culture */}
+      {cfi && (
+        <div className="adm-card" style={{marginTop: 40}}>
+          <div className="adm-card-title">{cfi.startsWith('fact_') ? 'Feit Bewerken' : 'Afbeelding Bewerken'}</div>
+          {sv ? <div className="spin" /> : (
+            <div>
+              {cfi.startsWith('fact_') ? (
+                <textarea 
+                  id="fact-input"
+                  className="inp-f" 
+                  style={{minHeight: 100, marginBottom: 16}}
+                  defaultValue={cfi === 'fact_new' ? '' : facts.find(f => f.id === cfi.split('_')[1])?.fact} 
+                  placeholder="Typ hier het feit..."
+                />
+              ) : (
+                <>
+                  <input id="img-url" className="inp-f" style={{marginBottom: 16}} type="text" placeholder="Beeld URL (https://...)" defaultValue={cfi === 'img_new' ? '' : images.find(i => i.id === cfi.split('_')[1])?.image_url} />
+                  <input id="img-cap" className="inp-f" style={{marginBottom: 16}} type="text" placeholder="Onderschrift" defaultValue={cfi === 'img_new' ? '' : images.find(i => i.id === cfi.split('_')[1])?.caption} />
+                </>
+              )}
+              <div style={{display: 'flex', gap: 12}}>
+                <button className="btn" onClick={() => {
+                  if (cfi.startsWith('fact_')) {
+                    saveCult({ fact: (document.getElementById('fact-input') as HTMLTextAreaElement).value }, 'fact');
+                  } else {
+                    saveCult({ 
+                      image_url: (document.getElementById('img-url') as HTMLInputElement).value,
+                      caption: (document.getElementById('img-cap') as HTMLInputElement).value
+                    }, 'image');
+                  }
+                }}>Opslaan</button>
+                <button className="btn btn--ghost" onClick={() => setCfi(null)}>Annuleren</button>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
