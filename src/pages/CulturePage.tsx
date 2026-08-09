@@ -333,7 +333,7 @@ export const CulturePage = () => {
                     margin: "0 auto",
                     paddingBottom: "48px"
                   }}>
-                    {combinedItems.map((item, index) => {
+                    {combinedItems.map(item => {
                       if (item.type === 'fact') {
                         const fact = item.data as CultureFact;
                         return (
