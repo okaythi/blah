@@ -2,46 +2,136 @@ import { useState, useEffect } from "react";
 import { Nav } from "../components/Nav";
 import { CultureAPI } from "../api";
 import type { CultureFact, CultureImage, CultureAudio } from "../api";
-import { BookOpen, MessageCircle, Hourglass, PlayCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { BookOpen, MessageCircle, Hourglass, PlayCircle } from "lucide-react";
 
 type Tab = 'Overzicht' | 'Taalkunde' | 'Geschiedenis';
 
 const timelineData = [
   {
     id: "t1",
-    year: "c. 50 v.Chr. – 400 n.Chr.",
-    title: "De Via Belgica en de Romeinse Invloed",
-    content: "De Romeinse heerweg tussen Boulogne en Keulen loopt vlak ten noorden van Landen. De noordelijke regio behield sterke Germaanse invloeden, terwijl het zuiden geromaniseerd werd. Dit legde de fundering voor de latere taalgrens."
+    year: "54 v.Chr. – 50 v.Chr.",
+    title: "Romeinse Verovering",
+    content: "De Gallische Oorlogen brengen Landen in de invloedssfeer van het Romeinse Rijk. De regio wordt blootgesteld aan de Latijnse taal, de administratieve taal van het Rijk, wat het startpunt is voor een eeuwenlange linguïstische frictie in het gebied."
   },
   {
     id: "t2",
-    year: "c. 250 – 500 n.Chr.",
-    title: "De Frankische Kolonisatie",
-    content: "Salische Franken steken de Rijn over en vestigen zich in de regio. Het Frankisch verdringt het Latijn volledig ten noorden van de kolenwouden (Silva Carbonaria), wat leidt tot het ontstaan van het Oudnederlands in deze streek."
+    year: "Eerste Eeuwen n.Chr.",
+    title: "Aanleg van de Via Belgica",
+    content: "De belangrijke Romeinse heerweg tussen Boulogne, Tongeren en Keulen wordt aangelegd en loopt vlak ten noorden van Landen. Deze as fungeert als een katalysator voor Romanisering ten zuiden ervan, terwijl het noorden Germaanser blijft."
   },
   {
     id: "t3",
-    year: "c. 580 – 640 n.Chr.",
-    title: "Pippijn van Landen",
-    content: "Als hofmeier van Austrasië spreekt Pippijn van Landen Oudopperfrankisch of Oudnederfrankisch. Het bestuurlijke machtscentrum zorgt voor een diepe integratie van Frankische woordenschat in de lokale taal."
+    year: "c. 350 – 450 n.Chr.",
+    title: "Inval van de Salische Franken",
+    content: "De Franken steken de Rijn over en vestigen zich in Toxandrië en Haspengouw (waaronder Landen). Ze brengen hun Germaanse dialecten mee, verdringen het Latijn, en leggen de basis voor het latere Frankisch en Oudnederlands."
   },
   {
     id: "t4",
-    year: "11e – 14e Eeuw",
-    title: "De Brabantse Expansie",
-    content: "Landen ligt op de grens van het machtige Hertogdom Brabant en het Prinsbisdom Luik. De oostwaartse Brabantse expansie beïnvloedt de taal, maar door de perifere ligging behoudt Landen conservatieve kenmerken."
+    year: "c. 580 n.Chr.",
+    title: "Geboorte Pippijn van Landen",
+    content: "Pippijn de Oudere wordt geboren in de regio. Als hofmeier behoort hij tot een aristocratie die Oudopperfrankisch of Oudnederfrankisch spreekt. Deze Frankische adellijke invloed verankert zich diep in de plaatselijke streektalen."
   },
   {
     id: "t5",
-    year: "13e Eeuw – Heden",
-    title: "Vorming van het Getelands",
-    content: "De Uerdingerlinie (de grens tussen 'ik' en 'ich') stabiliseert zich. Landen ontwikkelt het 'Getelands', een uniek overgangsdialect met Brabantse kenmerken (zoals het gebruik van 'gij') en Limburgse invloeden (zoals umlaut in verkleinwoorden)."
+    year: "c. 640 n.Chr.",
+    title: "De Merovingische Toponymie",
+    content: "Na de dood van Pippijn blijft Landen een centrum van Merovingische macht. Deze Germaanse invloed is vandaag nog zichtbaar in de vele toponiemen eindigend op '-ingen' en '-maal' in Haspengouw en het Getelands."
   },
   {
     id: "t6",
-    year: "1962",
-    title: "Fixatie van de Taalgrens",
-    content: "De wettelijke vastlegging van de taalgrens verankert Landen definitief in het eentalig Nederlandstalig gebied (Vlaams-Brabant), grenzend aan het Franstalige Waals-Brabant en Luik."
+    year: "9e Eeuw",
+    title: "Karolingische Splitsingen",
+    content: "Door het Verdrag van Verdun (843) en Meerssen (870) komt Landen uiteindelijk in Oost-Francië terecht. Dit versterkt de Germaanse politieke en culturele banden, ver weg van de zich vormende Franse staat."
+  },
+  {
+    id: "t7",
+    year: "11e Eeuw",
+    title: "Stadsrechten onder Brabant",
+    content: "Landen krijgt stadsrechten van de Hertog van Brabant. Het Brabantse dialect begint aan zijn eeuwenlange, prestigieuze opmars naar het oosten, waardoor Landen langzaam taalkundige elementen van steden als Leuven overneemt."
+  },
+  {
+    id: "t8",
+    year: "1211",
+    title: "De Slag bij Steppes",
+    content: "Dit militaire conflict tussen het Hertogdom Brabant en het Prinsbisdom Luik vindt plaats nabij Landen. Het illustreert de grensstatus van de stad, geklemd tussen het expanderende Brabantse taalgebied en de oostelijke Limburgs/Luikse invloeden."
+  },
+  {
+    id: "t9",
+    year: "13e – 14e Eeuw",
+    title: "Brabantse Expansie en Aanspreekvormen",
+    content: "De invloed van de Brabantse dialectexpansie bereikt zijn hoogtepunt. Landen neemt Brabantse kenmerken over, met name het gebruik van het persoonlijk voornaamwoord 'gij', in tegenstelling tot de meer oostelijke vormen."
+  },
+  {
+    id: "t10",
+    year: "14e Eeuw",
+    title: "Stabilisatie Uerdingerlinie",
+    content: "De isoglosse die de westelijke 'ik'-vorm scheidt van de oostelijke 'ich'-vorm stabiliseert zich. Landen belandt exact aan de oostzijde ('ich'), wat het bepalende kernmerk wordt voor het unieke Getelandse dialect."
+  },
+  {
+    id: "t11",
+    year: "1648",
+    title: "De Vrede van Münster",
+    content: "De formele grens met de Republiek wordt vastgelegd. De noordelijke dialecten isoleren zich, waardoor de zuidelijke dialecten (zoals het Getelands) zich zelfstandig verder ontwikkelen zonder druk van de opkomende noordelijke standaardtaal."
+  },
+  {
+    id: "t12",
+    year: "1795",
+    title: "Franse Annexatie",
+    content: "De Franse Republiek annexeert de regio en maakt het Frans de enige toegelaten bestuurstaal. Ondanks de verfransing van het openbare leven en de elite, blijft de plattelandsbevolking in Landen hardnekkig vasthouden aan het dialect."
+  },
+  {
+    id: "t13",
+    year: "1815 – 1830",
+    title: "Verenigd Koninkrijk der Nederlanden",
+    content: "Koning Willem I doet een poging om het Nederlands weer als officiële staatstaal in het zuiden te implementeren. De korte duur van deze periode heeft echter weinig invloed op de diepgewortelde structuur van het Landense dialect."
+  },
+  {
+    id: "t14",
+    year: "1830",
+    title: "Belgische Onafhankelijkheid",
+    content: "De Belgische staat wordt opgericht met Frans als exclusieve voertaal van de overheid. Het Getelandse dialect blijft geïsoleerd functioneren als de gesproken volkstaal, verstoken van enige standaardisering."
+  },
+  {
+    id: "t15",
+    year: "2 April 1838",
+    title: "Opening Spoorlijn 36",
+    content: "Het station van Landen opent op de hoofdas Brussel-Luik. De spoorweg doorbreekt het linguïstisch isolement en introduceert honderden Franse (waalse) spoorwegtermen direct in de volkstaal van Landen."
+  },
+  {
+    id: "t16",
+    year: "1846",
+    title: "Eerste Officiële Talentelling",
+    content: "De eerste algemene talentelling in België vindt plaats. In grensgebieden zoals Landen waren deze resultaten vaak onbetrouwbaar en onderwerp van politieke spanningen, wat de taalgrens op scherp stelde."
+  },
+  {
+    id: "t17",
+    year: "21 Juli 1890",
+    title: "De Gelijkheidswet",
+    content: "Na decennia van Franse suprematie zorgt deze wet ervoor dat het Nederlands (waaronder ook het dialect) officieel voor de rechtbank gebruikt mag worden in Vlaanderen, een trage formele erkenning van de streektaal."
+  },
+  {
+    id: "t18",
+    year: "1921",
+    title: "Eerste Taalwet in Bestuurszaken",
+    content: "België wordt administratief opgedeeld in eentalige en tweetalige gebieden. Het territorialiteitsbeginsel wordt geïntroduceerd, maar de grens rond Landen blijft nog fluïde en afhankelijk van de talentellingen."
+  },
+  {
+    id: "t19",
+    year: "1932",
+    title: "Verankering Territorialiteitsbeginsel",
+    content: "De wet stipuleert dat de taal van de administratie de taal van de meerderheid is, wat gemeten wordt via de omstreden tienjaarlijkse volkstellingen die grote paniek in de taalgrensgemeenten veroorzaken."
+  },
+  {
+    id: "t20",
+    year: "1947",
+    title: "De Laatste Talentelling",
+    content: "De laatste en fel betwiste talentelling vindt plaats onder enorme politieke druk en vervalsing in grensgebieden. Vlaamse burgemeesters, waaronder in de streek van Landen, weigeren nog mee te werken aan verdere tellingen."
+  },
+  {
+    id: "t21",
+    year: "8 November 1962",
+    title: "Fixatie van de Taalgrens (Wet-Gilson)",
+    content: "De taalgrens wordt definitief in de wet verankerd, ongeacht verdere tellingen. Landen wordt onherroepelijk bij het eentalig Nederlandstalige Brabant (nu Vlaams-Brabant) gevoegd, waardoor duizenden jaren van taalevolutie in steen gebeiteld worden."
   }
 ];
 
@@ -63,7 +153,7 @@ export const CulturePage = () => {
   }, []);
 
   return (
-    <div className="pg" style={{ display: "flex", flexDirection: "column", flex: 1, padding: "24px", paddingBottom: "100px" }}>
+    <div className="pg" style={{ display: "flex", flexDirection: "column", flex: 1, padding: "24px", paddingBottom: "100px", overflowX: "hidden" }}>
       <div className="bg-orb bg-orb--a" />
       <div className="bg-orb bg-orb--b" />
       <div className="bg-orb bg-orb--c" />
@@ -72,10 +162,10 @@ export const CulturePage = () => {
         <Nav />
       </div>
       
-      <main className="search-main" style={{ maxWidth: "1000px", margin: "0 auto", width: "100%", marginTop: "24px" }}>
+      <main className="search-main" style={{ maxWidth: "1200px", margin: "0 auto", width: "100%", marginTop: "24px" }}>
         
-        <div className="nav-wrap" style={{ marginBottom: "32px" }}>
-          <div className="nav-pill">
+        <div className="nav-wrap" style={{ marginBottom: "24px", display: "flex", justifyContent: "center" }}>
+          <div className="nav-pill" style={{ display: "flex" }}>
             <button
               onClick={() => setActiveTab('Overzicht')}
               className={`nav-item ${activeTab === 'Overzicht' ? 'nav-item--active' : ''}`}
@@ -114,42 +204,51 @@ export const CulturePage = () => {
               </p>
             </div>
 
-            <div style={{ marginBottom: "80px" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "24px" }}>
-                <div style={{ flex: 1, height: "1px", background: "var(--gls-br)" }} />
-                <h3 style={{ color: "var(--fg2)", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Tijdlijn van de Landense Taal</h3>
-                <div style={{ flex: 1, height: "1px", background: "var(--gls-br)" }} />
+            <div style={{ marginBottom: "100px", width: "100vw", position: "relative", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw", overflow: "hidden" }}>
+              <div style={{ textAlign: "center", marginBottom: "24px" }}>
+                <h3 style={{ color: "var(--fg2)", fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Chronologie van de Taalgrens in Landen</h3>
               </div>
               
-              <div style={{ display: "flex", overflowX: "auto", gap: "16px", paddingBottom: "24px", msOverflowStyle: "none", scrollbarWidth: "none" }}>
-                {timelineData.map((item) => (
-                  <div 
-                    key={item.id} 
-                    style={{ 
-                      minWidth: "300px", 
-                      flex: "0 0 auto", 
-                      background: expandedTimelineId === item.id ? "var(--gls2)" : "var(--gls)", 
-                      border: "1px solid var(--gls-br)", 
-                      borderRadius: "var(--br-sm)", 
-                      padding: "20px", 
-                      cursor: "pointer", 
-                      transition: "all 0.3s ease",
-                      borderTop: expandedTimelineId === item.id ? "2px solid var(--ac)" : "1px solid var(--gls-br)"
-                    }}
-                    onClick={() => setExpandedTimelineId(expandedTimelineId === item.id ? null : item.id)}
-                  >
-                    <div style={{ color: "var(--ac)", fontSize: "0.85rem", fontWeight: 600, letterSpacing: "0.05em", marginBottom: "8px" }}>{item.year}</div>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                      <h4 style={{ color: "var(--fg)", fontSize: "1.1rem", fontWeight: 500, margin: 0 }}>{item.title}</h4>
-                      {expandedTimelineId === item.id ? <ChevronUp size={18} color="var(--fg2)" /> : <ChevronDown size={18} color="var(--fg2)" />}
-                    </div>
-                    {expandedTimelineId === item.id && (
-                      <p style={{ marginTop: "16px", color: "var(--fg2)", fontSize: "0.95rem", lineHeight: "1.6", animation: "fade-in 0.3s ease" }}>
-                        {item.content}
-                      </p>
-                    )}
-                  </div>
-                ))}
+              <div style={{ overflowX: "auto", position: "relative", padding: "0 100px" }}>
+                <div style={{ position: "relative", height: "600px", display: "flex", alignItems: "center", minWidth: "max-content", gap: "250px" }}>
+                  <div style={{ position: "absolute", top: "50%", left: 0, right: 0, height: "2px", background: "var(--ac)" }} />
+                  
+                  {timelineData.map((item, index) => {
+                    const isTop = index % 2 === 0;
+                    return (
+                      <div key={item.id} style={{ position: "relative", width: "40px" }}>
+                        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "16px", height: "16px", borderRadius: "50%", background: "var(--bg)", border: "3px solid var(--ac)", boxShadow: "0 0 10px rgba(239, 51, 64, 0.5)", zIndex: 2 }} />
+                        
+                        <div 
+                          style={{ 
+                            position: "absolute", 
+                            [isTop ? "bottom" : "top"]: "calc(50% + 16px)", 
+                            left: "50%", 
+                            transform: "translateX(-50%)", 
+                            width: "320px", 
+                            padding: "16px",
+                            cursor: "pointer",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center"
+                          }} 
+                          onClick={() => setExpandedTimelineId(expandedTimelineId === item.id ? null : item.id)}
+                        >
+                           <div style={{ position: "absolute", [isTop ? "bottom" : "top"]: "-16px", left: "50%", width: "1px", height: "16px", background: "var(--ac)" }} />
+
+                           <div style={{ color: "var(--ac)", fontWeight: 700, fontSize: "1.1rem", marginBottom: "8px", letterSpacing: "0.05em", textAlign: "center" }}>{item.year}</div>
+                           <h4 style={{ color: "var(--fg)", fontSize: "1.1rem", fontWeight: 600, margin: 0, textAlign: "center", lineHeight: "1.4" }}>{item.title}</h4>
+                           
+                           <div style={{ height: expandedTimelineId === item.id ? "180px" : "0px", overflow: "hidden", transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)", width: "100%", opacity: expandedTimelineId === item.id ? 1 : 0 }}>
+                             <div style={{ marginTop: "16px", background: "var(--gls)", padding: "16px", borderRadius: "var(--br-sm)", border: "1px solid var(--gls-br)", color: "var(--fg2)", fontSize: "0.95rem", lineHeight: "1.6", textAlign: "left", boxShadow: "var(--sh)" }}>
+                               {item.content}
+                             </div>
+                           </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
 
@@ -158,7 +257,9 @@ export const CulturePage = () => {
             ) : (
               <div className="masonry-grid" style={{ 
                 columnCount: 2, 
-                columnGap: "48px" 
+                columnGap: "48px",
+                maxWidth: "1000px",
+                margin: "0 auto"
               }}>
                 {facts.map(fact => (
                   <div key={fact.id} className="masonry-item" style={{ breakInside: "avoid", marginBottom: "64px" }}>
@@ -192,7 +293,7 @@ export const CulturePage = () => {
         )}
 
         {activeTab === 'Taalkunde' && (
-          <section style={{ animation: "fade-in 0.5s ease" }}>
+          <section style={{ animation: "fade-in 0.5s ease", maxWidth: "1000px", margin: "0 auto" }}>
             <div style={{ marginBottom: "100px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }}>
               <div>
                 <h2 style={{ fontSize: "2.25rem", fontWeight: 700, marginBottom: "32px", color: "var(--fg)", letterSpacing: "-0.02em" }}>
@@ -251,7 +352,7 @@ export const CulturePage = () => {
         )}
 
         {activeTab === 'Geschiedenis' && (
-          <section style={{ animation: "fade-in 0.5s ease" }}>
+          <section style={{ animation: "fade-in 0.5s ease", maxWidth: "1000px", margin: "0 auto" }}>
             <div style={{ marginBottom: "120px" }}>
               <h2 style={{ fontSize: "2rem", fontWeight: 700, marginBottom: "64px", color: "var(--fg)", textAlign: "center", letterSpacing: "-0.02em" }}>De Merovingische Stamboom</h2>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
