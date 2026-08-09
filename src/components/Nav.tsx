@@ -3,7 +3,6 @@ import { Search, List, Landmark } from "lucide-react";
 
 export const Nav = () => {
   const loc = useLocation();
-  const isSearch = loc.pathname === "/";
 
   return (
     <div className="nav-wrap">
