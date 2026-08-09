@@ -236,8 +236,8 @@ export const CulturePage = () => {
           </div>
           
           <div style={{ position: "relative" }}>
-            {/* Left Fade & Button */}
-            <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to right, var(--bg) 0%, transparent 100%)", zIndex: 10, display: "flex", alignItems: "center", pointerEvents: "none" }}>
+            {/* Left Button */}
+            <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "100px", zIndex: 10, display: "flex", alignItems: "center", pointerEvents: "none" }}>
               <button 
                 className="timeline-nav-btn"
                 onClick={() => scrollTimeline('left')}
@@ -247,8 +247,8 @@ export const CulturePage = () => {
               </button>
             </div>
 
-            {/* Right Fade & Button */}
-            <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "100px", background: "linear-gradient(to left, var(--bg) 0%, transparent 100%)", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "flex-end", pointerEvents: "none" }}>
+            {/* Right Button */}
+            <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "100px", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "flex-end", pointerEvents: "none" }}>
               <button 
                 className="timeline-nav-btn"
                 onClick={() => scrollTimeline('right')}
@@ -258,9 +258,11 @@ export const CulturePage = () => {
               </button>
             </div>
 
-            <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px", msOverflowStyle: "none", scrollbarWidth: "none" }}>
+            {/* Fixed Red Line spanning the entire width */}
+            <div style={{ position: "absolute", top: "358px", left: 0, right: 0, height: "2px", background: "var(--ac)", zIndex: 1 }} />
+
+            <div ref={timelineRef} className="timeline-scroll" style={{ overflowX: "auto", position: "relative", padding: "0 100px", paddingBottom: "24px", msOverflowStyle: "none", scrollbarWidth: "none", WebkitMaskImage: "linear-gradient(to right, transparent, black 100px, black calc(100% - 100px), transparent)", maskImage: "linear-gradient(to right, transparent, black 100px, black calc(100% - 100px), transparent)" }}>
               <div style={{ display: "flex", gap: "64px", alignItems: "flex-start", position: "relative", minWidth: "max-content" }}>
-                <div style={{ position: "absolute", top: "358px", left: 0, right: 0, height: "2px", background: "var(--ac)", zIndex: 1 }} />
               
               {timelineData.map((item, index) => {
                 const isTop = index % 2 === 0;
